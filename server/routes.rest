@@ -1,0 +1,50 @@
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+    {
+        "name": "spiderman",
+        "email": "spider@gmail.com",
+        "password": "spider",
+        "pic": "test.jpg"
+
+    }
+
+###
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+    {
+
+        "email": "spider@gmail.com",
+        "password": "spider"
+
+
+    }
+
+###
+GET http://localhost:5000/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMmYxZDYxNDViMzgzMzVmOWViYzBkMyIsImlhdCI6MTY0NzMwMjI4OCwiZXhwIjoxNjQ3Mzg4Njg4fQ.R3mU2j0l8pDlXQy6cey__7Lp8zIW452QwHYxgmkCWeI
+
+###
+POST http://localhost:5000/api/notes/create
+Content-Type: application/json
+
+    {
+        "title": "test",
+        "content": "test",
+        "category": "test"
+    }
+
+###
+POST http://localhost:5000/api/users/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMmYxZDYxNDViMzgzMzVmOWViYzBkMyIsImlhdCI6MTY0NzMzMTg3MCwiZXhwIjoxNjQ3NDE4MjcwfQ.M8stS1JnYyByjsgh4uGIDNS6atTtSMO3S-GWEaJw_ho
+
+
+
+    {
+        "name": "spiderman",
+        "email": "duck@duck.go",
+        "password": "duck"
+    }
