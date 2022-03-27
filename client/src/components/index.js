@@ -4,7 +4,7 @@ export { default as Register } from "./Register/Register";
 export { default as ErrorMessage } from "./ErrorMessage";
 export { default as Loading } from "./Loading";
 
-export { default as SideMenu } from "./Dashboard/SideMenu";
+export { default as SideMenu } from "./Dashboard/SideMenu/SideMenu";
 export { default as SideMenuItem } from "./Dashboard/SideMenuItem";
 
 export { default as FrameDashboard } from "./Dashboard/FrameDashboard";

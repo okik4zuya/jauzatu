@@ -1,20 +1,6 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Flex,
-  Center,
-  Box,
-  Image,
-  Avatar,
-  VStack,
-  Badge,
-  Button,
-  ButtonGroup,
-  Spacer,
-} from "@chakra-ui/react";
-import { FrameDashboard } from "../../";
-import { BuatUndangan } from "../../";
-import InfoUndangan from "../InfoUndangan/InfoUndangan";
+import { FrameDashboard, BuatUndangan, InfoUndangan } from "../../";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Overview() {
   const dispatch = useDispatch();
@@ -25,48 +11,40 @@ export default function Overview() {
   return (
     <>
       <FrameDashboard title="Overview">
-        <Flex direction={`${screen <= 1200 ? "column" : "row"}`}>
+        <div className="flex">
           <div
-            className={` h-[160px] bg-yellow-200 rounded-lg shadow-md w-full sm:w-[49%] mb-2 "
+            className={` h-[160px] rounded-lg shadow-md w-full sm:w-[49%] mb-2 "
             }`}
           >
-            <Center>
-              <VStack>
-                <div className="relative top-6">
-                  <Avatar size={"md"} src={""} />
-                </div>
-                <div className="relative top-6 text-center">duck@duck.go</div>
-                <div className="relative top-6 text-center">
-                  <Badge variant="outline" colorScheme="green">
-                    Akun: Gold
-                  </Badge>
-                </div>
-              </VStack>
-            </Center>
+            <div className="flex flex-col items-center">
+              <div className="relative top-6">
+                <FaUserCircle className="h-[40px] w-[40px] text-gray-300" />
+              </div>
+              <div className="relative top-6 text-center">duck@duck.go</div>
+              <div className="relative top-6 badge bg-yellow-200 text-gold">
+                Akun: Gold
+              </div>
+            </div>
           </div>
-          <Spacer />
+
           <div
-            className={`bg-white shadow-md rounded-lg h-[160px] w-full sm:w-[49%] text-sm p-1 "
+            className={`flex flex-col items-center bg-white shadow-md rounded-lg h-[160px] w-full sm:w-[49%] text-sm p-1 "
             }`}
           >
-            <Center>
-              <VStack>
-                <div className="w-3/4 relative top-4 text-center ">
-                  Saat ini anda berada dalam paket Silver. Untuk upgrade akun
-                  silahkan hubungi kami.
-                </div>
-                <div className="relative top-4">
-                  <ButtonGroup>
-                    <Button size="sm">Info Paket</Button>
-                    <Button size="sm" bg={"gold"} color={"white"}>
-                      Upgrade
-                    </Button>
-                  </ButtonGroup>
-                </div>
-              </VStack>
-            </Center>
+            <div className="w-3/4 relative top-4 text-center ">
+              Saat ini anda berada dalam paket Silver. Untuk upgrade akun
+              silahkan hubungi kami.
+            </div>
+            <div className="mt-6">
+              <button type="button" class="secondary__button">
+                Info Paket
+              </button>
+              <button type="button" class="primary__button">
+                Upgrade
+              </button>
+            </div>
           </div>
-        </Flex>
+        </div>
         {isCreated ? <InfoUndangan /> : <BuatUndangan />}
       </FrameDashboard>
     </>

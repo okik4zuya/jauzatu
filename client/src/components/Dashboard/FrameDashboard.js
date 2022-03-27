@@ -15,20 +15,20 @@ export default function FrameDashboard({ children, title }) {
 
   return (
     <>
-      <Flex>
+      <div className="flex">
         <div
           className="sm:hidden text-center w-[70px] py-2 text-white bg-gold rounded-lg font-bold text-xl shadow-md"
           onClick={() => setOpenMenu(true)}
         >
           Menu
         </div>
-        <DashboardDrawer openMenu={openMenu} setOpenMenu={setOpenMenu} />
-        <Spacer />
+        {/* <DashboardDrawer openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
+        {/* <Spacer /> */}
 
         <div className="text-center sm:w-full w-3/4 py-2 text-white bg-gold rounded-lg font-bold text-xl shadow-md">
           {title}
         </div>
-      </Flex>
+      </div>
 
       <div className="mt-2">{children}</div>
     </>

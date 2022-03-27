@@ -33,13 +33,11 @@ export default function Dashboard() {
   const { active, showSideMenu } = layout;
 
   return (
-    <Center className="" backgroundColor="gray.100">
-      <Flex className=" w-full md:w-2/3 min-h-screen ">
-        <div className="w-[200px] ml-[10px] mt-[90px] hidden sm:block  ">
-          <SideMenu />
-        </div>
+    <div className="bg-gray-200 w-full h-full pt-20 pb-40">
+      <div className="flex w-full lg:w-2/3 mx-auto px-4 ">
+        <SideMenu />
 
-        <div className="bg-white p-4 h-full md:w-[50vw] w-[100vw] md:ml-[20px] mx-[10px] mt-[90px] rounded-xl shadow-xl">
+        <div className="flex-auto bg-white p-4 h-full md:w-[50vw] w-[100vw] md:ml-[20px] mx-[10px] rounded-xl shadow-lg">
           {active === "Overview" && <Overview />}
           {active === "Pilih Tema" && <PilihTema />}
           {active === "Edit Mempelai" && <EditMempelai />}
@@ -48,7 +46,7 @@ export default function Dashboard() {
           {active === "Info Paket" && <InfoPaket />}
           {active === "Profil" && <Profil />}
         </div>
-      </Flex>
-    </Center>
+      </div>
+    </div>
   );
 }

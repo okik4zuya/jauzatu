@@ -24,6 +24,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HiViewGrid } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 //import components
@@ -107,7 +108,9 @@ export default function Header() {
                     cursor={"pointer"}
                     minW={0}
                   >
-                    <Avatar size={"sm"} src={""} />
+                    <div className="bg-white rounded-full p-1">
+                      <FaUserCircle className="h-[35px] w-[35px] text-gray-300" />
+                    </div>
                   </MenuButton>
                   <MenuList className="h-auto">
                     <MenuItem as={Link} to={links.dashboard.to}>

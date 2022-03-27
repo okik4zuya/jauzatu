@@ -1,51 +1,104 @@
-import {
-  Button,
-  Center,
-  Container,
-  FormControl,
-  FormLabel,
-  Input,
-  VStack,
-} from "@chakra-ui/react";
-import React from "react";
-
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { FrameDashboard } from "../../";
 
 export default function Profil() {
+  const [pofile, setProfile] = useState({
+    name: "",
+    email: "",
+    pic: "",
+    password: "",
+    confirmPassword: "",
+    picMessage: "",
+  });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const userUpdate = useSelector((state) => state.userUpdate);
+  const { loading, error, success } = userUpdate;
   return (
     <>
       <FrameDashboard title="Profil">
-        <Container className="mt-[40px]">
+        <div className="w-[150px] h-[150px] rounded-full mt-10 mx-auto overflow-hidden grid place-items-center">
+          <img src={userInfo.pic} className="object-cover w-full h-full" />
+        </div>
+        <div className="mt-[40px]">
           <form>
-            <VStack spacing="20px">
-              <FormControl>
-                <FormLabel>Nama</FormLabel>
-                <Input placeholder="Nama" />
-              </FormControl>
-              <FormControl>
-                <FormLabel>Email</FormLabel>
-                <Input placeholder="Email" />
-              </FormControl>
-              <FormControl>
-                <FormLabel>Password Baru</FormLabel>
-                <Input placeholder="Password Baru" />
-              </FormControl>
-              <FormControl>
-                <FormLabel>Konfirmasi Password Baru</FormLabel>
-                <Input placeholder="Konfirmasi Password Baru" />
-              </FormControl>
-              <FormControl>
-                <FormLabel>Upload Gambar Profil</FormLabel>
-                <Input type="file" placeholder="file" />
-              </FormControl>
-              <Center>
-                <Button type="submit" variant="primary" bg="gold" color="white">
+            <div className="lg:w-[400px] mx-auto">
+              <div class="mb-4 w-full">
+                <label for="name" class="form__label">
+                  Nama
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form__input"
+                  placeholder=""
+                  value={userInfo.name}
+                  required
+                />
+              </div>
+              <div class="mb-4 w-full">
+                <label for="email" class="form__label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form__input"
+                  placeholder=""
+                  value={userInfo.email}
+                  required
+                />
+              </div>
+              <div class="mb-4 w-full">
+                <label for="password" class="form__label">
+                  Password Baru
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form__input"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="mb-4 w-full">
+                <label for="confirmPassword" class="form__label">
+                  Konfirmasi Password Baru
+                </label>
+                <input
+                  type="confirmPassword"
+                  name="confirmPassword"
+                  class="form__input"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="mb-4 w-full">
+                <label for="pic" class="form__label">
+                  Upload Gambar Profil
+                </label>
+                <input
+                  type="file"
+                  name="pic"
+                  class="form__input"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div className="grid place-items-center">
+                <button type="submit" className="primary__button">
                   Update Profil
-                </Button>
-              </Center>
-            </VStack>
+                </button>
+              </div>
+            </div>
           </form>
-        </Container>
+        </div>
       </FrameDashboard>
     </>
   );

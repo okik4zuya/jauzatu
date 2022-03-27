@@ -14,7 +14,7 @@ import {
 import { setActive } from "../../actions/layoutActions";
 
 import { set } from "../../actions/layoutActions";
-import SideMenu from "./SideMenu";
+import SideMenu from "./SideMenu/SideMenu";
 
 export default function DashboardDrawer({ openMenu, setOpenMenu }) {
   const dispatch = useDispatch();

@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .dashboard__sidemenu__item {
+    @apply flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer;
+  }
+  .dashboard__sidemenu__icon {
+    @apply w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white;
+  }
+  .dashboard__sidemenu__text {
+    @apply flex-1 ml-3 text-left whitespace-nowrap grow;
+  }
+  .badge {
+    @apply flex items-center text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800;
+  }
+  .primary__button {
+    @apply text-white bg-gold hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-semibold rounded-lg text-sm px-4 py-1.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-600 focus:outline-none dark:focus:ring-yellow-800;
+  }
+  .secondary__button {
+    @apply py-1.5 px-4 mr-2 mb-2 text-sm font-semibold text-gray-900 focus:outline-none bg-gray-200 rounded-lg border border-gray-200 hover:bg-gray-300  focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700;
+  }
+  .form__label {
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300;
+  }
+  .form__input {
+    @apply shadow-sm bg-gray-50 border border-2 border-gold text-gray-900 text-sm rounded-lg focus:ring-gold focus:border-gold block w-full p-2.5 dark:bg-gray-700 dark:border-gold dark:placeholder-gray-400 dark:text-white dark:focus:ring-gold dark:focus:border-gold;
+  }
+}

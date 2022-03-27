@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Field, Form } from "formik";
 import { setIsCreated, setActive } from "../../../actions/layoutActions";
+import "./BuatUndangan.css";
 
 export default function BuatUndangan() {
   const [slug, setSlug] = useState("");
@@ -31,10 +32,8 @@ export default function BuatUndangan() {
   };
 
   return (
-    <div className="mt-2 bg-gold shadow-lg rounded-lg p-2 w-full h-[200px]">
-      <div className="text-center text-white font-bold text-xl py-2">
-        Buat Undangan
-      </div>
+    <div className="container">
+      <div className="buat-undangan">Buat Undangan</div>
       <Container>
         <form onSubmit={handleSubmit}>
           <FormControl>
