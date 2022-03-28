@@ -5,6 +5,7 @@ import { SHOW_SIDE_MENU } from "../../constants/layoutConstants";
 import { set } from "../../actions/layoutActions";
 import DashboardDrawer from "./DashboardDrawer";
 import { SideMenu } from "../";
+import { BelumBuat } from "../";
 
 export default function FrameDashboard({ children, title }) {
   const dispatch = useDispatch();
@@ -29,7 +30,6 @@ export default function FrameDashboard({ children, title }) {
           {title}
         </div>
       </div>
-
       <div className="mt-2">{children}</div>
     </>
   );

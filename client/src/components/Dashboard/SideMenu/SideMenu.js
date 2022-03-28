@@ -47,21 +47,33 @@ export default function SideMenu() {
             </button>
             {expandEditUndangan && (
               <ul id="dropdown_edit_undangan" className="ml-4">
-                <li className="dashboard__sidemenu__item">
+                <li
+                  className="dashboard__sidemenu__item"
+                  onClick={() => dispatch(setActive("Pilih Tema"))}
+                >
                   <HiTemplate className="flex-shrink-0 dashboard__sidemenu__icon" />
                   <span className="dashboard__sidemenu__text">Pilih Tema</span>
                 </li>
-                <li className="dashboard__sidemenu__item">
+                <li
+                  className="dashboard__sidemenu__item"
+                  onClick={() => dispatch(setActive("Edit Mempelai"))}
+                >
                   <FaHeartbeat className="flex-shrink-0 dashboard__sidemenu__icon" />
                   <span className="dashboard__sidemenu__text">
                     Edit Mempelai
                   </span>
                 </li>
-                <li className="dashboard__sidemenu__item">
+                <li
+                  className="dashboard__sidemenu__item"
+                  onClick={() => dispatch(setActive("Edit Acara"))}
+                >
                   <FaCalendarCheck className="flex-shrink-0 dashboard__sidemenu__icon" />
                   <span className="dashboard__sidemenu__text">Edit Acara</span>
                 </li>
-                <li className="dashboard__sidemenu__item">
+                <li
+                  className="dashboard__sidemenu__item"
+                  onClick={() => dispatch(setActive("Edit Teks"))}
+                >
                   <HiDocumentText className="flex-shrink-0 dashboard__sidemenu__icon" />
                   <span className="dashboard__sidemenu__text">Edit Teks</span>
                 </li>

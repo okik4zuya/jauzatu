@@ -12,6 +12,12 @@ import {
   noteUpdateReducer,
   noteDeleteReducer,
 } from "../reducers/noteReducers";
+import {
+  invitationCreateReducer,
+  invitationListReducer,
+  invitationUpdateReducer,
+  invitationDeleteReducer,
+} from "../reducers/invitationReducers";
 import { dashboardReducer } from "../reducers/layoutReducers";
 
 const reducer = combineReducers({
@@ -24,6 +30,10 @@ const reducer = combineReducers({
   noteDelete: noteDeleteReducer,
   userUpdate: userUpdateReducer,
   dashboard: dashboardReducer,
+  invitationList: invitationListReducer,
+  invitationCreate: invitationCreateReducer,
+  invitationUpdate: invitationUpdateReducer,
+  invitationDelete: invitationDeleteReducer,
 });
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")

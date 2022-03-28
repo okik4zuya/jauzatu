@@ -1,14 +1,5 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Container,
-  Grid,
-  GridItem,
-  Center,
-  Flex,
-  SimpleGrid,
-  Spacer,
-} from "@chakra-ui/react";
 import { HiMenu } from "react-icons/hi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { HiHome } from "react-icons/hi";
@@ -24,23 +15,45 @@ import {
   Profil,
   InfoPaket,
   SideMenu,
-  SideMenuItem,
 } from "../../components";
+import { BASE_URL } from "../../constants/urlConstants";
+import axios from "axios";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const layout = useSelector((state) => state.dashboard);
+  const [data, setData] = useState();
   const { active, showSideMenu } = layout;
+  const { userInfo } = useSelector((state) => state.userLogin);
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const fetchData = async () => {
+      setData(await axios.get(`${BASE_URL}/api/invitations/userid`, config));
+    };
+
+    try {
+      fetchData();
+    } catch (error) {
+      setData([]);
+    }
+  }, []);
+
+  console.log(userInfo);
 
   return (
-    <div className="bg-gray-200 w-full h-full pt-20 pb-40">
+    <div className="bg-gray-200 w-full min-h-screen pt-20 pb-40">
       <div className="flex w-full lg:w-2/3 mx-auto px-4 ">
         <SideMenu />
 
         <div className="flex-auto bg-white p-4 h-full md:w-[50vw] w-[100vw] md:ml-[20px] mx-[10px] rounded-xl shadow-lg">
           {active === "Overview" && <Overview />}
           {active === "Pilih Tema" && <PilihTema />}
-          {active === "Edit Mempelai" && <EditMempelai />}
+          {active === "Edit Mempelai" && <EditMempelai data={data.data[0]} />}
           {active === "Edit Acara" && <EditAcara />}
           {active === "Edit Teks" && <EditTeks />}
           {active === "Info Paket" && <InfoPaket />}

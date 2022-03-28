@@ -2,10 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const notes = require("./data/notes");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 const noteRoutes = require("./routes/noteRoutes");
+const invitationRoutes = require("./routes/invitationRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app = express();
@@ -26,6 +26,7 @@ app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/notes", noteRoutes);
+app.use("/api/invitations", invitationRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FrameDashboard, BuatUndangan, InfoUndangan } from "../../";
 import { FaUserCircle } from "react-icons/fa";
 
-export default function Overview() {
+export default function Overview({ data }) {
   const dispatch = useDispatch();
   const layout = useSelector((state) => state.dashboard);
   const { isCreated, active } = layout;
