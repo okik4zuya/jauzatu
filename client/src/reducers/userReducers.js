@@ -9,6 +9,7 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
+  USER_CREATE_INVITATION,
 } from "../constants/userConstants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -48,6 +49,16 @@ export const userUpdateReducer = (state = {}, action) => {
       return { loading: false, userInfo: action.payload, success: true };
     case USER_UPDATE_FAIL:
       return { loading: false, error: action.payload, success: false };
+    default:
+      return state;
+  }
+};
+
+export const userCreateInvitationReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_CREATE_INVITATION:
+      return { invitationCreated: true };
+
     default:
       return state;
   }

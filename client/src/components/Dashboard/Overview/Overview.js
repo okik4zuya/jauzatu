@@ -35,7 +35,7 @@ export default function Overview({ data }) {
               Saat ini anda berada dalam paket Silver. Untuk upgrade akun
               silahkan hubungi kami.
             </div>
-            <div className="mt-6">
+            <div className="mt-6 grid place-items-center">
               <button type="button" class="secondary__button">
                 Info Paket
               </button>
@@ -45,7 +45,6 @@ export default function Overview({ data }) {
             </div>
           </div>
         </div>
-        {isCreated ? <InfoUndangan /> : <BuatUndangan />}
       </FrameDashboard>
     </>
   );

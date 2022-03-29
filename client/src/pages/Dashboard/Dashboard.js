@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HiMenu } from "react-icons/hi";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { HiHome } from "react-icons/hi";
-import { SIDE_MENU } from "../../constants/layoutConstants";
-import { set } from "../../actions/layoutActions";
-
+import { BASE_URL } from "../../constants/urlConstants";
+import axios from "axios";
+import { setActive } from "../../actions/layoutActions";
 import {
   Overview,
   PilihTema,
@@ -15,9 +12,8 @@ import {
   Profil,
   InfoPaket,
   SideMenu,
+  BuatUndangan,
 } from "../../components";
-import { BASE_URL } from "../../constants/urlConstants";
-import axios from "axios";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -41,9 +37,7 @@ export default function Dashboard() {
     } catch (error) {
       setData([]);
     }
-  }, []);
-
-  console.log(userInfo);
+  }, [userInfo.invitationCreated, active]);
 
   return (
     <div className="bg-gray-200 w-full min-h-screen pt-20 pb-40">
@@ -52,10 +46,11 @@ export default function Dashboard() {
 
         <div className="flex-auto bg-white p-4 h-full md:w-[50vw] w-[100vw] md:ml-[20px] mx-[10px] rounded-xl shadow-lg">
           {active === "Overview" && <Overview />}
+          {active === "Buat Undangan" && <BuatUndangan />}
           {active === "Pilih Tema" && <PilihTema />}
           {active === "Edit Mempelai" && <EditMempelai data={data.data[0]} />}
-          {active === "Edit Acara" && <EditAcara />}
-          {active === "Edit Teks" && <EditTeks />}
+          {active === "Edit Acara" && <EditAcara data={data.data[0]} />}
+          {active === "Edit Teks" && <EditTeks data={data.data[0]} />}
           {active === "Info Paket" && <InfoPaket />}
           {active === "Profil" && <Profil />}
         </div>

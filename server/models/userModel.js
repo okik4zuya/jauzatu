@@ -21,6 +21,9 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    invitationCreated: {
+      type: Boolean,
+    },
     pic: {
       type: String,
       required: true,

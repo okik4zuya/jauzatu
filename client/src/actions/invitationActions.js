@@ -8,10 +8,12 @@ import {
   INVITATION_UPDATE_FAIL,
   INVITATION_UPDATE_REQUEST,
   INVITATION_UPDATE_SUCCESS,
+  INVITATION_UPDATE_FINISH,
   INVITATION_DELETE_FAIL,
   INVITATION_DELETE_REQUEST,
   INVITATION_DELETE_SUCCESS,
 } from "../constants/invitationConstants";
+import { USER_CREATE_INVITATION } from "../constants/userConstants";
 import axios from "axios";
 import { BASE_URL } from "../constants/urlConstants";
 
@@ -49,9 +51,51 @@ export const listInvitations = () => async (dispatch, getState) => {
   }
 };
 
+export const createInvitationAction = (slug) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: INVITATION_CREATE_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.post(
+      `/api/invitations/create`,
+      { slug },
+      config
+    );
+
+    dispatch({
+      type: USER_CREATE_INVITATION,
+    });
+
+    dispatch({
+      type: INVITATION_CREATE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: INVITATION_CREATE_FAIL,
+      payload: message,
+    });
+  }
+};
+
 export const updateInvitationAction =
-  (id, slug, tema, namaLengkapPria, namaPria, namaLengkapWanita, namaWanita) =>
-  async (dispatch, getState) => {
+  (updated) => async (dispatch, getState) => {
     try {
       dispatch({
         type: INVITATION_UPDATE_REQUEST,
@@ -67,6 +111,40 @@ export const updateInvitationAction =
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
+      const {
+        id,
+        slug,
+        tema,
+        namaLengkapPria,
+        namaPria,
+        namaLengkapWanita,
+        namaWanita,
+        waktuAkad,
+        waktuResepsi,
+        lokasiAkad,
+        lokasiResepsi,
+        linkGoogleMaps,
+        iFrameGoogleMaps,
+        teksTanggalDepan,
+        teksSalamPembuka,
+        teksPendahuluan,
+        teksHariAkad,
+        teksTanggalAkad,
+        teksJamAkad,
+        teksHariResepsi,
+        teksTanggalResepsi,
+        teksJamResepsi,
+        teksBulan,
+        teksTahun,
+        teksOrangTuaPria,
+        teksOrangTuaWanita,
+        teksAyat,
+        teksPenutup,
+        teksSalamPenutup,
+        teksKamiYangBerbahagia,
+        teksKelPria,
+        teksKelWanita,
+      } = updated;
 
       const { data } = await axios.put(
         `${BASE_URL}/api/invitations/id/${id}`,
@@ -77,6 +155,31 @@ export const updateInvitationAction =
           namaPria,
           namaLengkapWanita,
           namaWanita,
+          waktuAkad,
+          waktuResepsi,
+          lokasiAkad,
+          lokasiResepsi,
+          linkGoogleMaps,
+          iFrameGoogleMaps,
+          teksTanggalDepan,
+          teksSalamPembuka,
+          teksPendahuluan,
+          teksHariAkad,
+          teksTanggalAkad,
+          teksJamAkad,
+          teksHariResepsi,
+          teksTanggalResepsi,
+          teksJamResepsi,
+          teksBulan,
+          teksTahun,
+          teksOrangTuaPria,
+          teksOrangTuaWanita,
+          teksAyat,
+          teksPenutup,
+          teksSalamPenutup,
+          teksKamiYangBerbahagia,
+          teksKelPria,
+          teksKelWanita,
         },
         config
       );
@@ -85,6 +188,11 @@ export const updateInvitationAction =
         type: INVITATION_UPDATE_SUCCESS,
         payload: data,
       });
+      setTimeout(() => {
+        dispatch({
+          type: INVITATION_UPDATE_FINISH,
+        });
+      }, 8000);
     } catch (error) {
       const message =
         error.response && error.response.data.message

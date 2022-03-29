@@ -51,53 +51,42 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyY
 
 ###
 GET http://localhost:5000/api/invitations/userid/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODM4NDQ1NCwiZXhwIjoxNjQ4NDcwODU0fQ.m2j690D_wSgTCyIebBKXWoXcmU_t8_yo2dGp9VaWIU0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
 
 ###
-GET http://localhost:5000/api/invitations/id/62409a1fb2ed30181053bbb8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODM4NDQ1NCwiZXhwIjoxNjQ4NDcwODU0fQ.m2j690D_wSgTCyIebBKXWoXcmU_t8_yo2dGp9VaWIU0
+DELETE http://localhost:5000/api/invitations/id/62428dcf116d1b722633a959
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
 
 ###
-DELETE http://localhost:5000/api/invitations/id/62409a1fb2ed30181053bbb8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODM4NDQ1NCwiZXhwIjoxNjQ4NDcwODU0fQ.m2j690D_wSgTCyIebBKXWoXcmU_t8_yo2dGp9VaWIU0
+GET http://localhost:5000/api/invitations/id/6241193ebf3ef12371f76f64
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
+
+
+
+###
+PUT http://localhost:5000/api/invitations/id/6241193ebf3ef12371f76f64
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
+
+    {
+        "slug": "test3",
+        "tema": "test",
+        "namaLengkapPria": "Omar Abdurrahman",
+        "namaPria": "Omar",
+        "namaLengkapWanita": "Hana Aisyah",
+        "namaWanita": "Hani",
+        "waktuAkad": "2020-06-01"
+
+    }
+
+
 
 
 ###
 POST http://localhost:5000/api/invitations/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODQ1NDgzNCwiZXhwIjoxNjQ4NTQxMjM0fQ.htTJUeAHLAY-oH4CjYA1F5QMVtpS4B1VpDWne2JV4Gc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
 
     {
-        "slug": "test5",
-        "tema": "test",
-        "namaLengkapPria": "Omar",
-        "namaPria": "Omar Abdurahman",
-        "namaLengkapWanita": "Hana Aisyah",
-        "namaWanita": "Hana"
-
+        "slug": "slug01"        
     }
-
-###
-GET http://localhost:5000/api/invitations/id/62416d38e19af2337e6d8dd0
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODQ1NDgzNCwiZXhwIjoxNjQ4NTQxMjM0fQ.htTJUeAHLAY-oH4CjYA1F5QMVtpS4B1VpDWne2JV4Gc
-
-###
-PUT http://localhost:5000/api/invitations/id/62416d38e19af2337e6d8dd0
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODQ1NDgzNCwiZXhwIjoxNjQ4NTQxMjM0fQ.htTJUeAHLAY-oH4CjYA1F5QMVtpS4B1VpDWne2JV4Gc
-
-{
-        "slug": "test6",
-        "tema": "tema01",
-        "namaLengkapPria": "Omar1",
-        "namaPria": "Omar Abdurahman1",
-        "namaLengkapWanita": "Hana Aisyah1",
-        "namaWanita": "Hana1"
-
-    }
-
-###
-GET http://localhost:5000/api/invitations/slug/test6
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODQ1NDgzNCwiZXhwIjoxNjQ4NTQxMjM0fQ.htTJUeAHLAY-oH4CjYA1F5QMVtpS4B1VpDWne2JV4Gc

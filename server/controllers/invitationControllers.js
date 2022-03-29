@@ -29,6 +29,31 @@ const updateInvitation = asyncHandler(async (req, res) => {
     namaPria,
     namaLengkapWanita,
     namaWanita,
+    waktuAkad,
+    waktuResepsi,
+    lokasiAkad,
+    lokasiResepsi,
+    linkGoogleMaps,
+    iFrameGoogleMaps,
+    teksTanggalDepan,
+    teksSalamPembuka,
+    teksPendahuluan,
+    teksHariAkad,
+    teksTanggalAkad,
+    teksJamAkad,
+    teksHariResepsi,
+    teksTanggalResepsi,
+    teksJamResepsi,
+    teksBulan,
+    teksTahun,
+    teksOrangTuaPria,
+    teksOrangTuaWanita,
+    teksAyat,
+    teksPenutup,
+    teksSalamPenutup,
+    teksKamiYangBerbahagia,
+    teksKelPria,
+    teksKelWanita,
   } = req.body;
 
   const invitation = await Invitation.findById(req.params.id);
@@ -44,6 +69,32 @@ const updateInvitation = asyncHandler(async (req, res) => {
     invitation.namaPria = namaPria;
     invitation.namaLengkapWanita = namaLengkapWanita;
     invitation.namaWanita = namaWanita;
+    invitation.waktuAkad = waktuAkad;
+    invitation.waktuResepsi = waktuResepsi;
+    invitation.lokasiAkad = lokasiAkad;
+    invitation.lokasiResepsi = lokasiResepsi;
+    invitation.linkGoogleMaps = linkGoogleMaps;
+    invitation.iFrameGoogleMaps = iFrameGoogleMaps;
+    invitation.teksTanggalDepan = teksTanggalDepan;
+    invitation.teksSalamPembuka = teksSalamPembuka;
+    invitation.teksPendahuluan = teksPendahuluan;
+    invitation.teksHariAkad = teksHariAkad;
+    invitation.teksTanggalAkad = teksTanggalAkad;
+    invitation.teksJamAkad = teksJamAkad;
+    invitation.teksHariResepsi = teksHariResepsi;
+    invitation.teksTanggalResepsi = teksTanggalResepsi;
+    invitation.teksJamResepsi = teksJamResepsi;
+    invitation.teksBulan = teksBulan;
+    invitation.teksTahun = teksTahun;
+    invitation.teksOrangTuaPria = teksOrangTuaPria;
+    invitation.teksOrangTuaWanita = teksOrangTuaWanita;
+    invitation.teksAyat = teksAyat;
+    invitation.teksPenutup = teksPenutup;
+    invitation.teksSalamPenutup = teksSalamPenutup;
+    invitation.teksKamiYangBerbahagia = teksKamiYangBerbahagia;
+    invitation.teksKelPria = teksKelPria;
+    invitation.teksKelWanita = teksKelWanita;
+
     const updatedInvitation = await invitation.save();
     res.json(updatedInvitation);
   } else {
@@ -68,14 +119,7 @@ const deleteInvitationById = asyncHandler(async (req, res) => {
 });
 
 const createInvitation = asyncHandler(async (req, res) => {
-  const {
-    slug,
-    tema,
-    namaLengkapPria,
-    namaPria,
-    namaLengkapWanita,
-    namaWanita,
-  } = req.body;
+  const { slug } = req.body;
 
   if (!slug) {
     res.status(400);
@@ -84,11 +128,36 @@ const createInvitation = asyncHandler(async (req, res) => {
     const invitation = new Invitation({
       user: req.user._id,
       slug,
-      tema,
-      namaLengkapPria,
-      namaPria,
-      namaLengkapWanita,
-      namaWanita,
+      tema: "1",
+      namaLengkapPria: "1",
+      namaPria: "1",
+      namaLengkapWanita: "1",
+      namaWanita: "1",
+      waktuAkad: "1",
+      waktuResepsi: "1",
+      lokasiAkad: "1",
+      lokasiResepsi: "1",
+      linkGoogleMaps: "1",
+      iFrameGoogleMaps: "1",
+      teksTanggalDepan: "1",
+      teksSalamPembuka: "1",
+      teksPendahuluan: "1",
+      teksHariAkad: "1",
+      teksTanggalAkad: "1",
+      teksJamAkad: "1",
+      teksHariResepsi: "1",
+      teksTanggalResepsi: "1",
+      teksJamResepsi: "1",
+      teksBulan: "1",
+      teksTahun: "1",
+      teksOrangTuaPria: "1",
+      teksOrangTuaWanita: "1",
+      teksAyat: "1",
+      teksPenutup: "1",
+      teksSalamPenutup: "1",
+      teksKamiYangBerbahagia: "1",
+      teksKelPria: "1",
+      teksKelWanita: "1",
     });
     const createdInvitation = await invitation.save();
     res.status(201).json(createdInvitation);

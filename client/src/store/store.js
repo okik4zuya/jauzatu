@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 import {
+  userCreateInvitationReducer,
   userLoginReducer,
   userRegisterReducer,
   userUpdateReducer,
@@ -24,6 +25,7 @@ const reducer = combineReducers({
   // List of reducers
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userCreateInvitation: userCreateInvitationReducer,
   noteList: noteListReducer,
   noteCreate: noteCreateReducer,
   noteUpdate: noteUpdateReducer,

@@ -19,6 +19,8 @@ export default function SideMenu() {
   const layout = useSelector((state) => state.dashboard);
   const { showSideMenu, active } = layout;
 
+  const { userInfo } = useSelector((state) => state.userLogin);
+
   const [expandEditUndangan, setExpandEditUndangan] = useState(false);
 
   return (
@@ -31,55 +33,68 @@ export default function SideMenu() {
               <span className="ml-3">Overview</span>
             </a>
           </li>
+          {userInfo.invitationCreated ? (
+            <li>
+              <button
+                type="button"
+                className="dashboard__sidemenu__item w-full"
+                onClick={() => setExpandEditUndangan(!expandEditUndangan)}
+              >
+                <FaEdit className="flex-shrink-0 dashboard__sidemenu__icon" />
+                <span className="dashboard__sidemenu__text">Edit Undangan</span>
+                <FaChevronDown
+                  className="dashboard__sidemenu__icon"
+                  fill="currentColor"
+                />
+              </button>
+              {expandEditUndangan && (
+                <ul id="dropdown_edit_undangan" className="ml-4">
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Pilih Tema"))}
+                  >
+                    <HiTemplate className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Pilih Tema
+                    </span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Edit Mempelai"))}
+                  >
+                    <FaHeartbeat className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Edit Mempelai
+                    </span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Edit Acara"))}
+                  >
+                    <FaCalendarCheck className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Edit Acara
+                    </span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Edit Teks"))}
+                  >
+                    <HiDocumentText className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">Edit Teks</span>
+                  </li>
+                </ul>
+              )}
+            </li>
+          ) : (
+            <li onClick={() => dispatch(setActive("Buat Undangan"))}>
+              <a href="#" className="dashboard__sidemenu__item">
+                <FaEdit className="dashboard__sidemenu__icon" />
+                <span className="ml-3">Buat Undangan</span>
+              </a>
+            </li>
+          )}
 
-          <li>
-            <button
-              type="button"
-              className="dashboard__sidemenu__item w-full"
-              onClick={() => setExpandEditUndangan(!expandEditUndangan)}
-            >
-              <FaEdit className="flex-shrink-0 dashboard__sidemenu__icon" />
-              <span className="dashboard__sidemenu__text">Edit Undangan</span>
-              <FaChevronDown
-                className="dashboard__sidemenu__icon"
-                fill="currentColor"
-              />
-            </button>
-            {expandEditUndangan && (
-              <ul id="dropdown_edit_undangan" className="ml-4">
-                <li
-                  className="dashboard__sidemenu__item"
-                  onClick={() => dispatch(setActive("Pilih Tema"))}
-                >
-                  <HiTemplate className="flex-shrink-0 dashboard__sidemenu__icon" />
-                  <span className="dashboard__sidemenu__text">Pilih Tema</span>
-                </li>
-                <li
-                  className="dashboard__sidemenu__item"
-                  onClick={() => dispatch(setActive("Edit Mempelai"))}
-                >
-                  <FaHeartbeat className="flex-shrink-0 dashboard__sidemenu__icon" />
-                  <span className="dashboard__sidemenu__text">
-                    Edit Mempelai
-                  </span>
-                </li>
-                <li
-                  className="dashboard__sidemenu__item"
-                  onClick={() => dispatch(setActive("Edit Acara"))}
-                >
-                  <FaCalendarCheck className="flex-shrink-0 dashboard__sidemenu__icon" />
-                  <span className="dashboard__sidemenu__text">Edit Acara</span>
-                </li>
-                <li
-                  className="dashboard__sidemenu__item"
-                  onClick={() => dispatch(setActive("Edit Teks"))}
-                >
-                  <HiDocumentText className="flex-shrink-0 dashboard__sidemenu__icon" />
-                  <span className="dashboard__sidemenu__text">Edit Teks</span>
-                </li>
-              </ul>
-            )}
-          </li>
           <li onClick={() => dispatch(setActive("Info Paket"))}>
             <a href="#" className="dashboard__sidemenu__item">
               <FaGem className="dashboard__sidemenu__icon" />

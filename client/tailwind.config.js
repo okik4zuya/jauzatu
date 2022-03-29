@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{html,js,jsx,ts,tsx}",
+    "./node_modules/flowbite/**/*.js",
+  ],
   mode: "jit",
   theme: {
     //screens: {},
@@ -147,5 +150,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animation-delay")],
+  plugins: [require("tailwindcss-animation-delay"), require("flowbite/plugin")],
 };

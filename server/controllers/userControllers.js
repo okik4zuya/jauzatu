@@ -58,6 +58,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.pic = req.body.pic || user.pic;
+    user.invitationCreated =
+      req.body.invitationCreated || user.invitationCreated;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -69,6 +71,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
+      invitationCreated: updatedUser.invitationCreated,
       token: generateToken(updatedUser._id),
       pic: updatedUser.pic,
     });

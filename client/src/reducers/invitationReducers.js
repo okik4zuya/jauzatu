@@ -8,6 +8,7 @@ import {
   INVITATION_UPDATE_FAIL,
   INVITATION_UPDATE_REQUEST,
   INVITATION_UPDATE_SUCCESS,
+  INVITATION_UPDATE_FINISH,
   INVITATION_DELETE_FAIL,
   INVITATION_DELETE_REQUEST,
   INVITATION_DELETE_SUCCESS,
@@ -47,6 +48,8 @@ export const invitationUpdateReducer = (state = { success: false }, action) => {
       return { loading: true, success: false };
     case INVITATION_UPDATE_SUCCESS:
       return { loading: false, success: true };
+    case INVITATION_UPDATE_FINISH:
+      return { loading: false, success: false };
     case INVITATION_UPDATE_FAIL:
       return { loading: false, error: action.payload, success: false };
 

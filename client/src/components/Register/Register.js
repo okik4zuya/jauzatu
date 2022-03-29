@@ -24,6 +24,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { register } from "../../actions/userActions";
+import { setActive } from "../../actions/layoutActions";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -61,6 +62,7 @@ export default function Register({ setIsRegister }) {
   useEffect(() => {
     if (userInfo) {
       navigate("/app/dashboard");
+      dispatch(setActive("Buat Undangan"));
     }
   }, [userInfo]);
 
