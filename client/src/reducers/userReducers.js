@@ -10,6 +10,7 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
   USER_CREATE_INVITATION,
+  USER_DELETE_INVITATION,
 } from "../constants/userConstants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -58,6 +59,8 @@ export const userCreateInvitationReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_CREATE_INVITATION:
       return { invitationCreated: true };
+    case USER_DELETE_INVITATION:
+      return { invitationCreated: false };
 
     default:
       return state;

@@ -58,8 +58,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.pic = req.body.pic || user.pic;
-    user.invitationCreated =
-      req.body.invitationCreated || user.invitationCreated;
+    user.isAdmin = req.body.isAdmin; // || user.isAdmin;
+    user.invitationCreated = req.body.invitationCreated; //|| user.invitationCreated;
 
     if (req.body.password) {
       user.password = req.body.password;

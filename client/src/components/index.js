@@ -18,5 +18,6 @@ export { default as EditTeks } from "./Dashboard/EditTeks/EditTeks";
 export { default as InfoPaket } from "./Dashboard/InfoPaket/InfoPaket";
 export { default as Profil } from "./Dashboard/Profil/Profil";
 export { default as BuatUndangan } from "./Dashboard/BuatUndangan/BuatUndangan";
+export { default as HapusUndangan } from "./Dashboard/HapusUndangan/HapusUndangan";
 export { default as InfoUndangan } from "./Dashboard/InfoUndangan/InfoUndangan";
 export { default as BelumBuat } from "./Dashboard/BelumBuat";

@@ -51,11 +51,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyY
 
 ###
 GET http://localhost:5000/api/invitations/userid/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDI5ZWQyNzA0ODk3OWRmOGIyYzBjZiIsImlhdCI6MTY0ODUzMzIxMywiZXhwIjoxNjQ4NjE5NjEzfQ.Oj0jU-6np_WK_QPiViof-zBgpBCMo9shAzYLlfmkyOg
 
 ###
-DELETE http://localhost:5000/api/invitations/id/62428dcf116d1b722633a959
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
+DELETE http://localhost:5000/api/invitations/id/62429edd7048979df8b2c0d5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDI5ZWQyNzA0ODk3OWRmOGIyYzBjZiIsImlhdCI6MTY0ODUzMzIxMywiZXhwIjoxNjQ4NjE5NjEzfQ.Oj0jU-6np_WK_QPiViof-zBgpBCMo9shAzYLlfmkyOg
 
 ###
 GET http://localhost:5000/api/invitations/id/6241193ebf3ef12371f76f64
@@ -66,7 +66,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyY
 ###
 PUT http://localhost:5000/api/invitations/id/6241193ebf3ef12371f76f64
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDI5ZWQyNzA0ODk3OWRmOGIyYzBjZiIsImlhdCI6MTY0ODUzMzIxMywiZXhwIjoxNjQ4NjE5NjEzfQ.Oj0jU-6np_WK_QPiViof-zBgpBCMo9shAzYLlfmkyOg
 
     {
         "slug": "test3",
@@ -85,7 +85,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyY
 ###
 POST http://localhost:5000/api/invitations/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzEzMDQyYWI2NGIwNTFkYzVlMjNmZCIsImlhdCI6MTY0ODUyMTMzMiwiZXhwIjoxNjQ4NjA3NzMyfQ.nltEl-N8HgydD56QgPTv12xuEZ-5LGncz9sgRP0HDEE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDI5ZWQyNzA0ODk3OWRmOGIyYzBjZiIsImlhdCI6MTY0ODUzMzIxMywiZXhwIjoxNjQ4NjE5NjEzfQ.Oj0jU-6np_WK_QPiViof-zBgpBCMo9shAzYLlfmkyOg
 
     {
         "slug": "slug01"        

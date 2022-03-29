@@ -13,6 +13,7 @@ import {
   InfoPaket,
   SideMenu,
   BuatUndangan,
+  HapusUndangan,
 } from "../../components";
 
 export default function Dashboard() {
@@ -51,6 +52,7 @@ export default function Dashboard() {
           {active === "Edit Mempelai" && <EditMempelai data={data.data[0]} />}
           {active === "Edit Acara" && <EditAcara data={data.data[0]} />}
           {active === "Edit Teks" && <EditTeks data={data.data[0]} />}
+          {active === "Hapus Undangan" && <HapusUndangan data={data.data[0]} />}
           {active === "Info Paket" && <InfoPaket />}
           {active === "Profil" && <Profil />}
         </div>

@@ -1,9 +1,0 @@
-@tailwind components;
-@layer components {
-  .container {
-    @apply mt-2 bg-gold shadow-lg rounded-lg p-2 w-full h-[200px];
-  }
-  .buat-undangan {
-    @apply text-center text-white font-bold text-xl py-2;
-  }
-}

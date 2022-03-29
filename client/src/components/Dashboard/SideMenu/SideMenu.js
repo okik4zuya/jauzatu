@@ -83,6 +83,15 @@ export default function SideMenu() {
                     <HiDocumentText className="flex-shrink-0 dashboard__sidemenu__icon" />
                     <span className="dashboard__sidemenu__text">Edit Teks</span>
                   </li>
+                  <li
+                    className="dashboard__sidemenu__item "
+                    onClick={() => dispatch(setActive("Hapus Undangan"))}
+                  >
+                    <FaCalendarCheck className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text text-red-600">
+                      Hapus Undangan
+                    </span>
+                  </li>
                 </ul>
               )}
             </li>

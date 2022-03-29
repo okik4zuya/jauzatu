@@ -94,6 +94,43 @@ export const createInvitationAction = (slug) => async (dispatch, getState) => {
   }
 };
 
+export const deleteInvitationAction = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: INVITATION_DELETE_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.delete(
+      `${BASE_URL}/api/invitations/id/${id}`,
+      config
+    );
+
+    dispatch({
+      type: INVITATION_DELETE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: INVITATION_DELETE_FAIL,
+      payload: message,
+    });
+  }
+};
+
 export const updateInvitationAction =
   (updated) => async (dispatch, getState) => {
     try {
