@@ -10,10 +10,16 @@
     @apply w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white;
   }
   .dashboard__sidemenu__text {
-    @apply flex-1 ml-3 text-left whitespace-nowrap grow;
+    @apply ml-3 text-left whitespace-nowrap;
   }
   .badge {
     @apply flex items-center text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800;
+  }
+  .badge__gold {
+    @apply bg-gold text-white text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 mx-[0.5px] my-[0.5px];
+  }
+  .badge__purple {
+    @apply bg-purple-700 text-white text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 mx-[0.5px] my-[0.5px];
   }
   .primary__button {
     @apply text-white bg-gold hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-semibold rounded-lg text-sm px-4 py-1.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-600 focus:outline-none dark:focus:ring-yellow-800;

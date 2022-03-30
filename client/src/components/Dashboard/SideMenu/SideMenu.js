@@ -10,6 +10,14 @@ import {
   FaCalendarCheck,
   FaGem,
   FaChevronDown,
+  FaMusic,
+  FaMapMarkedAlt,
+  FaImages,
+  FaBookmark,
+  FaComments,
+  FaGift,
+  FaGlobe,
+  FaStopwatch,
 } from "react-icons/fa";
 import { SHOW_SIDE_MENU } from "../../../constants/layoutConstants";
 import { setActive } from "../../../actions/layoutActions";
@@ -22,6 +30,7 @@ export default function SideMenu() {
   const { userInfo } = useSelector((state) => state.userLogin);
 
   const [expandEditUndangan, setExpandEditUndangan] = useState(false);
+  const [expandFitur, setExpandFitur] = useState(false);
 
   return (
     <aside className="w-[250px] hidden sm:block" aria-label="Sidebar">
@@ -41,7 +50,9 @@ export default function SideMenu() {
                 onClick={() => setExpandEditUndangan(!expandEditUndangan)}
               >
                 <FaEdit className="flex-shrink-0 dashboard__sidemenu__icon" />
-                <span className="dashboard__sidemenu__text">Edit Undangan</span>
+                <span className="dashboard__sidemenu__text flex-1">
+                  Edit Undangan
+                </span>
                 <FaChevronDown
                   className="dashboard__sidemenu__icon"
                   fill="currentColor"
@@ -101,6 +112,106 @@ export default function SideMenu() {
                 <FaEdit className="dashboard__sidemenu__icon" />
                 <span className="ml-3">Buat Undangan</span>
               </a>
+            </li>
+          )}
+          {userInfo.invitationCreated && (
+            <li>
+              <button
+                type="button"
+                className="dashboard__sidemenu__item w-full"
+                onClick={() => setExpandFitur(!expandFitur)}
+              >
+                <FaEdit className="flex-shrink-0 dashboard__sidemenu__icon" />
+                <span className="dashboard__sidemenu__text flex-1">Fitur</span>
+                <FaChevronDown
+                  className="dashboard__sidemenu__icon"
+                  fill="currentColor"
+                />
+              </button>
+              {expandFitur && (
+                <ul id="dropdown_edit_undangan" className="ml-4">
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Countdown"))}
+                  >
+                    <FaStopwatch className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">Countdown</span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Audio Latar"))}
+                  >
+                    <FaMusic className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Audio Latar
+                    </span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Google Maps"))}
+                  >
+                    <FaMapMarkedAlt className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Google Maps
+                    </span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Love Journey"))}
+                  >
+                    <FaHeartbeat className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Love Journey
+                    </span>
+                    <span className="badge__gold">Gold</span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Galeri"))}
+                  >
+                    <FaImages className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">Galeri</span>
+                    <span className="badge__gold">Gold</span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("RSVP"))}
+                  >
+                    <FaBookmark className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">RSVP</span>
+                    <span className="badge__gold">Gold</span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Pojok Hadiah"))}
+                  >
+                    <FaGift className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Pojok Hadiah
+                    </span>
+                    <span className="badge__gold">Gold</span>
+                  </li>
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Ucapan"))}
+                  >
+                    <FaComments className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">Ucapan</span>
+                    <span className="badge__gold">Gold</span>
+                  </li>
+
+                  <li
+                    className="dashboard__sidemenu__item"
+                    onClick={() => dispatch(setActive("Custom Domain"))}
+                  >
+                    <FaGlobe className="flex-shrink-0 dashboard__sidemenu__icon" />
+                    <span className="dashboard__sidemenu__text">
+                      Custom Domain
+                    </span>
+                    <span className="badge__purple ml-1">Platinum</span>
+                  </li>
+                </ul>
+              )}
             </li>
           )}
 

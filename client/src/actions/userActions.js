@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants/urlConstants";
 import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
@@ -92,7 +93,11 @@ export const updateProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post("/api/users/profile", user, config);
+    const { data } = await axios.post(
+      `${BASE_URL}/api/users/profile`,
+      user,
+      config
+    );
     console.log(data);
 
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FrameDashboard, Loading, ErrorMessage } from "../../";
 import { updateProfile } from "../../../actions/userActions";
+import AlertSuccess from "../../AlertSuccess";
+import Spinner from "../../Spinner";
 
 export default function Profil() {
   const [profile, setProfile] = useState({
@@ -27,7 +29,7 @@ export default function Profil() {
       navigate("/");
     } else {
       setProfile({
-        ...profile,
+        ...userInfo,
         name: userInfo.name,
         email: userInfo.email,
         pic: userInfo.pic,
@@ -37,16 +39,10 @@ export default function Profil() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    dispatch(
-      updateProfile({
-        name: profile.name,
-        email: profile.email,
-        password: profile.password,
-        pic: profile.pic,
-      })
-    );
+    dispatch(updateProfile(profile));
   };
+
+  console.log(profile);
 
   const postDetails = (pics) => {
     setProfile({ ...profile, picMessage: null });
@@ -80,9 +76,7 @@ export default function Profil() {
         <div className="mt-[40px]">
           <form onSubmit={submitHandler}>
             {loading && <Loading />}
-            {success && (
-              <ErrorMessage variant="success">Berhasil Diupdate!!</ErrorMessage>
-            )}
+
             <div className="lg:w-[400px] mx-auto">
               <div class="mb-4 w-full">
                 <label for="name" class="form__label">
@@ -161,9 +155,10 @@ export default function Profil() {
                   onChange={(e) => postDetails(e.target.files[0])}
                 />
               </div>
+              {success && <AlertSuccess>Data berhasil diubah</AlertSuccess>}
               <div className="grid place-items-center">
                 <button type="submit" className="primary__button">
-                  Update Profil
+                  {loading ? <Spinner /> : "Update"}
                 </button>
               </div>
             </div>

@@ -133,6 +133,7 @@ export const deleteInvitationAction = (id) => async (dispatch, getState) => {
 
 export const updateInvitationAction =
   (updated) => async (dispatch, getState) => {
+    console.log(updated);
     try {
       dispatch({
         type: INVITATION_UPDATE_REQUEST,

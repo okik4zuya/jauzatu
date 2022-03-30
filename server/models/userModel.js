@@ -24,6 +24,10 @@ const userSchema = mongoose.Schema(
     invitationCreated: {
       type: Boolean,
     },
+    accountType: {
+      type: String,
+      default: "Silver",
+    },
     pic: {
       type: String,
       required: true,

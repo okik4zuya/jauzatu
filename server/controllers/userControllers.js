@@ -25,6 +25,8 @@ const registerUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      invitationCreated: user.invitationCreated,
+      accountType: user.accountType,
       token: generateToken(user._id),
       pic: user.pic,
     });
@@ -43,6 +45,8 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      invitationCreated: user.invitationCreated,
+      accountType: user.accountType,
       token: generateToken(user._id),
       pic: user.pic,
     });
@@ -59,6 +63,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.email = req.body.email || user.email;
     user.pic = req.body.pic || user.pic;
     user.isAdmin = req.body.isAdmin; // || user.isAdmin;
+    user.accountType = req.body.accountType;
     user.invitationCreated = req.body.invitationCreated; //|| user.invitationCreated;
 
     if (req.body.password) {
@@ -72,6 +77,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
       invitationCreated: updatedUser.invitationCreated,
+      accountType: updatedUser.accountType,
       token: generateToken(updatedUser._id),
       pic: updatedUser.pic,
     });
