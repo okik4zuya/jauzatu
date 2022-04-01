@@ -9,7 +9,7 @@ export default function PilihTema({ data }) {
   return (
     <FrameDashboard title="Pilih Tema">
       <div className="grid place-items-center ">
-        <div className="flex flex-wrap ">
+        <div className="flex flex-wrap justify-center ">
           {dataTema.map((dataTema) => (
             <div className="mx-1 my-2">
               <TemaCard

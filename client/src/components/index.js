@@ -33,6 +33,10 @@ export { default as FiturLoveJourney } from "./Dashboard/FiturLoveJourney/FiturL
 export { default as FiturPojokHadiah } from "./Dashboard/FiturPojokHadiah/FiturPojokHadiah";
 export { default as FiturRSVP } from "./Dashboard/FiturRSVP/FiturRSVP";
 export { default as FiturUcapan } from "./Dashboard/FiturUcapan/FiturUcapan";
+export { default as LoveJourneyList } from "./Dashboard/FiturLoveJourney/LoveJourneyList/LoveJourneyList";
+export { default as LoveJourneyModal } from "./Dashboard/FiturLoveJourney/LoveJourneyModal/LoveJourneyModal";
+export { default as LoveJourneyModalEdit } from "./Dashboard/FiturLoveJourney/LoveJourneyModal/LoveJourneyModalEdit";
+export { default as LoveJourneyItem } from "./Dashboard/FiturLoveJourney/LoveJourneyList/LoveJourneyItem/LoveJourneyItem";
 
 //Features
 export { default as CountdownTimer } from "./Features/CountdownTimer/CountdownTimer";

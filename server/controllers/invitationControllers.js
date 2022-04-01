@@ -22,40 +22,6 @@ const getInvitationById = asyncHandler(async (req, res) => {
 });
 
 const updateInvitation = asyncHandler(async (req, res) => {
-  const {
-    slug,
-    tema,
-    namaLengkapPria,
-    namaPria,
-    namaLengkapWanita,
-    namaWanita,
-    waktuAkad,
-    waktuResepsi,
-    lokasiAkad,
-    lokasiResepsi,
-    linkGoogleMaps,
-    iFrameGoogleMaps,
-    teksTanggalDepan,
-    teksSalamPembuka,
-    teksPendahuluan,
-    teksHariAkad,
-    teksTanggalAkad,
-    teksJamAkad,
-    teksHariResepsi,
-    teksTanggalResepsi,
-    teksJamResepsi,
-    teksBulan,
-    teksTahun,
-    teksOrangTuaPria,
-    teksOrangTuaWanita,
-    teksAyat,
-    teksPenutup,
-    teksSalamPenutup,
-    teksKamiYangBerbahagia,
-    teksKelPria,
-    teksKelWanita,
-  } = req.body;
-
   const invitation = await Invitation.findById(req.params.id);
 
   if (invitation.user.toString() !== req.user._id.toString()) {
@@ -63,37 +29,38 @@ const updateInvitation = asyncHandler(async (req, res) => {
     throw new Error("You can't perform this action!");
   }
   if (invitation) {
-    invitation.slug = slug;
-    invitation.tema = tema;
-    invitation.namaLengkapPria = namaLengkapPria;
-    invitation.namaPria = namaPria;
-    invitation.namaLengkapWanita = namaLengkapWanita;
-    invitation.namaWanita = namaWanita;
-    invitation.waktuAkad = waktuAkad;
-    invitation.waktuResepsi = waktuResepsi;
-    invitation.lokasiAkad = lokasiAkad;
-    invitation.lokasiResepsi = lokasiResepsi;
-    invitation.linkGoogleMaps = linkGoogleMaps;
-    invitation.iFrameGoogleMaps = iFrameGoogleMaps;
-    invitation.teksTanggalDepan = teksTanggalDepan;
-    invitation.teksSalamPembuka = teksSalamPembuka;
-    invitation.teksPendahuluan = teksPendahuluan;
-    invitation.teksHariAkad = teksHariAkad;
-    invitation.teksTanggalAkad = teksTanggalAkad;
-    invitation.teksJamAkad = teksJamAkad;
-    invitation.teksHariResepsi = teksHariResepsi;
-    invitation.teksTanggalResepsi = teksTanggalResepsi;
-    invitation.teksJamResepsi = teksJamResepsi;
-    invitation.teksBulan = teksBulan;
-    invitation.teksTahun = teksTahun;
-    invitation.teksOrangTuaPria = teksOrangTuaPria;
-    invitation.teksOrangTuaWanita = teksOrangTuaWanita;
-    invitation.teksAyat = teksAyat;
-    invitation.teksPenutup = teksPenutup;
-    invitation.teksSalamPenutup = teksSalamPenutup;
-    invitation.teksKamiYangBerbahagia = teksKamiYangBerbahagia;
-    invitation.teksKelPria = teksKelPria;
-    invitation.teksKelWanita = teksKelWanita;
+    invitation.slug = req.body.slug;
+    invitation.tema = req.body.tema;
+    invitation.namaLengkapPria = req.body.namaLengkapPria;
+    invitation.namaPria = req.body.namaPria;
+    invitation.namaLengkapWanita = req.body.namaLengkapWanita;
+    invitation.namaWanita = req.body.namaWanita;
+    invitation.waktuAkad = req.body.waktuAkad;
+    invitation.waktuResepsi = req.body.waktuResepsi;
+    invitation.lokasiAkad = req.body.lokasiAkad;
+    invitation.lokasiResepsi = req.body.lokasiResepsi;
+    invitation.teksTanggalDepan = req.body.teksTanggalDepan;
+    invitation.teksSalamPembuka = req.body.teksSalamPembuka;
+    invitation.teksPendahuluan = req.body.teksPendahuluan;
+    invitation.teksHariAkad = req.body.teksHariAkad;
+    invitation.teksTanggalAkad = req.body.teksTanggalAkad;
+    invitation.teksJamAkad = req.body.teksJamAkad;
+    invitation.teksHariResepsi = req.body.teksHariResepsi;
+    invitation.teksTanggalResepsi = req.body.teksTanggalResepsi;
+    invitation.teksJamResepsi = req.body.teksJamResepsi;
+    invitation.teksBulan = req.body.teksBulan;
+    invitation.teksTahun = req.body.teksTahun;
+    invitation.teksOrangTuaPria = req.body.teksOrangTuaPria;
+    invitation.teksOrangTuaWanita = req.body.teksOrangTuaWanita;
+    invitation.teksAyat = req.body.teksAyat;
+    invitation.teksPenutup = req.body.teksPenutup;
+    invitation.teksSalamPenutup = req.body.teksSalamPenutup;
+    invitation.teksKamiYangBerbahagia = req.body.teksKamiYangBerbahagia;
+    invitation.teksKelPria = req.body.teksKelPria;
+    invitation.teksKelWanita = req.body.teksKelWanita;
+    invitation.fitur = req.body.fitur;
+    invitation.dataFitur = req.body.dataFitur;
+    invitation.loveJourney = req.body.loveJourney;
 
     const updatedInvitation = await invitation.save();
     res.json(updatedInvitation);

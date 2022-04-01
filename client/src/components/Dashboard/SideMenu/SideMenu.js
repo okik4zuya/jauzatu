@@ -18,6 +18,7 @@ import {
   FaGift,
   FaGlobe,
   FaStopwatch,
+  FaTrashAlt,
 } from "react-icons/fa";
 import { SHOW_SIDE_MENU } from "../../../constants/layoutConstants";
 import { setActive } from "../../../actions/layoutActions";
@@ -93,15 +94,6 @@ export default function SideMenu() {
                   >
                     <HiDocumentText className="flex-shrink-0 dashboard__sidemenu__icon" />
                     <span className="dashboard__sidemenu__text">Edit Teks</span>
-                  </li>
-                  <li
-                    className="dashboard__sidemenu__item "
-                    onClick={() => dispatch(setActive("Hapus Undangan"))}
-                  >
-                    <FaCalendarCheck className="flex-shrink-0 dashboard__sidemenu__icon" />
-                    <span className="dashboard__sidemenu__text text-red-600">
-                      Hapus Undangan
-                    </span>
                   </li>
                 </ul>
               )}
@@ -222,11 +214,26 @@ export default function SideMenu() {
             </a>
           </li>
           <li onClick={() => dispatch(setActive("Profil"))}>
-            <a href="#" className="dashboard__sidemenu__item">
+            <a href="#" className="dashboard__sidemenu__item mb-6">
               <FaUserAlt className="dashboard__sidemenu__icon" />
               <span className="ml-3">Profil</span>
             </a>
           </li>
+
+          {userInfo.invitationCreated && (
+            <ul className="pt-2 pb-2 bg-red-100 rounded-xl">
+              <div className="ml-2">Danger Zone</div>
+              <li
+                className="dashboard__sidemenu__item "
+                onClick={() => dispatch(setActive("Hapus Undangan"))}
+              >
+                <FaTrashAlt className="flex-shrink-0 dashboard__sidemenu__icon" />
+                <span className="dashboard__sidemenu__text text-red-600">
+                  Hapus Undangan
+                </span>
+              </li>
+            </ul>
+          )}
         </ul>
       </div>
     </aside>

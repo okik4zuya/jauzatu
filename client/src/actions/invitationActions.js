@@ -12,6 +12,9 @@ import {
   INVITATION_DELETE_FAIL,
   INVITATION_DELETE_REQUEST,
   INVITATION_DELETE_SUCCESS,
+  INVITATION_FETCH_FAIL,
+  INVITATION_FETCH_REQUEST,
+  INVITATION_FETCH_SUCCESS,
 } from "../constants/invitationConstants";
 import { USER_CREATE_INVITATION } from "../constants/userConstants";
 import axios from "axios";
@@ -182,6 +185,9 @@ export const updateInvitationAction =
         teksKamiYangBerbahagia,
         teksKelPria,
         teksKelWanita,
+        fitur,
+        dataFitur,
+        loveJourney,
       } = updated;
 
       const { data } = await axios.put(
@@ -197,8 +203,6 @@ export const updateInvitationAction =
           waktuResepsi,
           lokasiAkad,
           lokasiResepsi,
-          linkGoogleMaps,
-          iFrameGoogleMaps,
           teksTanggalDepan,
           teksSalamPembuka,
           teksPendahuluan,
@@ -218,6 +222,9 @@ export const updateInvitationAction =
           teksKamiYangBerbahagia,
           teksKelPria,
           teksKelWanita,
+          fitur,
+          dataFitur,
+          loveJourney,
         },
         config
       );
@@ -242,3 +249,41 @@ export const updateInvitationAction =
       });
     }
   };
+
+export const fetchInvitationAction = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: INVITATION_FETCH_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      `${BASE_URL}/api/invitations/userid`,
+      config
+    );
+
+    dispatch({
+      type: INVITATION_FETCH_SUCCESS,
+      payload: data,
+    });
+    console.log(data);
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: INVITATION_FETCH_FAIL,
+      payload: message,
+    });
+  }
+};

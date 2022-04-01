@@ -25,6 +25,7 @@ import {
   FiturRSVP,
   FiturUcapan,
 } from "../../components";
+import { fetchInvitationAction } from "../../actions/invitationActions";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -35,6 +36,11 @@ export default function Dashboard() {
   const { userInfo } = useSelector((state) => state.userLogin);
   const invitationUpdate = useSelector((state) => state.invitationUpdate);
   const { loading: loadingUpdate, success: successUpdate } = invitationUpdate;
+  const { showLoveJourneyModal } = useSelector((state) => state.dashboard);
+  const { invitation } = useSelector((state) => state.invitationFetch);
+  // console.log(invitation);
+  // console.log(userInfo);
+  // console.log(`show love journey modal : ${showLoveJourneyModal}`);
 
   useEffect(() => {
     if (!userInfo) {
@@ -48,16 +54,24 @@ export default function Dashboard() {
       const fetchData = async () => {
         setData(await axios.get(`${BASE_URL}/api/invitations/userid`, config));
       };
-
       try {
         fetchData();
       } catch (error) {
         setData([]);
       }
+      // dispatch(fetchInvitationAction());
+      //setData([...invitation]);
     }
-  }, [userInfo, userInfo.invitationCreated, active, successUpdate]);
+  }, [
+    userInfo,
+    userInfo.invitationCreated,
+    active,
+    successUpdate,
+    loadingUpdate,
+    showLoveJourneyModal,
+  ]);
 
-  console.log(userInfo);
+  // console.log(`successUpdate: ${successUpdate}`);
 
   return (
     <div className="bg-gray-200 w-full min-h-screen pt-20 pb-40">
@@ -77,15 +91,25 @@ export default function Dashboard() {
             )}
             {active === "Info Paket" && <InfoPaket />}
             {active === "Profil" && <Profil />}
-            {active === "Audio Latar" && <FiturAudioLatar />}
-            {active === "Countdown" && <FiturCountdown />}
-            {active === "Google Maps" && <FiturGoogleMaps />}
-            {active === "Love Journey" && <FiturLoveJourney />}
-            {active === "Galeri" && <FiturGaleri />}
-            {active === "RSVP" && <FiturRSVP />}
-            {active === "Pojok Hadiah" && <FiturPojokHadiah />}
-            {active === "Ucapan" && <FiturUcapan />}
-            {active === "Custom Domain" && <FiturCustomDomain />}
+            {active === "Audio Latar" && (
+              <FiturAudioLatar data={data.data[0]} />
+            )}
+            {active === "Countdown" && <FiturCountdown data={data.data[0]} />}
+            {active === "Google Maps" && (
+              <FiturGoogleMaps data={data.data[0]} />
+            )}
+            {active === "Love Journey" && (
+              <FiturLoveJourney data={data.data[0]} />
+            )}
+            {active === "Galeri" && <FiturGaleri data={data.data[0]} />}
+            {active === "RSVP" && <FiturRSVP data={data.data[0]} />}
+            {active === "Pojok Hadiah" && (
+              <FiturPojokHadiah data={data.data[0]} />
+            )}
+            {active === "Ucapan" && <FiturUcapan data={data.data[0]} />}
+            {active === "Custom Domain" && (
+              <FiturCustomDomain data={data.data[0]} />
+            )}
           </div>
         </div>
       ) : (

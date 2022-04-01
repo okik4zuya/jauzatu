@@ -12,6 +12,9 @@ import {
   INVITATION_DELETE_FAIL,
   INVITATION_DELETE_REQUEST,
   INVITATION_DELETE_SUCCESS,
+  INVITATION_FETCH_FAIL,
+  INVITATION_FETCH_REQUEST,
+  INVITATION_FETCH_SUCCESS,
 } from "../constants/invitationConstants";
 
 export const invitationListReducer = (state = { invitations: [] }, action) => {
@@ -66,6 +69,20 @@ export const invitationDeleteReducer = (state = {}, action) => {
       return { loading: false, success: true };
     case INVITATION_DELETE_FAIL:
       return { loading: false, error: action.payload, success: false };
+
+    default:
+      return state;
+  }
+};
+
+export const invitationFetchReducer = (state = {}, action) => {
+  switch (action.type) {
+    case INVITATION_FETCH_REQUEST:
+      return { loading: true };
+    case INVITATION_FETCH_SUCCESS:
+      return { loading: false, invitation: action.payload[0] };
+    case INVITATION_FETCH_FAIL:
+      return { loading: false, error: action.payload };
 
     default:
       return state;

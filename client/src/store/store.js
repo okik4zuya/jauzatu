@@ -18,6 +18,7 @@ import {
   invitationListReducer,
   invitationUpdateReducer,
   invitationDeleteReducer,
+  invitationFetchReducer,
 } from "../reducers/invitationReducers";
 import { dashboardReducer } from "../reducers/layoutReducers";
 
@@ -36,6 +37,7 @@ const reducer = combineReducers({
   invitationCreate: invitationCreateReducer,
   invitationUpdate: invitationUpdateReducer,
   invitationDelete: invitationDeleteReducer,
+  invitationFetch: invitationFetchReducer,
 });
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")

@@ -91,36 +91,6 @@ export default function EditAcara({ data }) {
                   }
                 />
               </div>
-              <div className="mb-4 w-full">
-                <label for="name" className="form__label">
-                  Link Google Maps
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  className="form__input"
-                  placeholder=""
-                  value={updated.linkGoogleMaps}
-                  onChange={(e) =>
-                    setUpdated({ ...updated, linkGoogleMaps: e.target.value })
-                  }
-                />
-              </div>
-              <div className="mb-4 w-full">
-                <label for="name" className="form__label">
-                  iFrame Google Maps
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  className="form__input"
-                  placeholder=""
-                  value={updated.iFrameGoogleMaps}
-                  onChange={(e) =>
-                    setUpdated({ ...updated, iFrameGoogleMaps: e.target.value })
-                  }
-                />
-              </div>
 
               {successUpdate && (
                 <AlertSuccess>Data berhasil diubah</AlertSuccess>

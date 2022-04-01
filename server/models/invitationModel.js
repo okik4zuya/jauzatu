@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+const commentSchema = mongoose.Schema(
+  {
+    text: { type: String },
+  },
+  {
+    timestamps: true,
+  }
+);
+const loveJourneySchema = mongoose.Schema({
+  title: { type: String },
+  text: { type: String },
+});
 const invitationSchema = mongoose.Schema(
   {
     user: {
@@ -7,6 +19,26 @@ const invitationSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
+    fitur: {
+      countdown: { type: Boolean, default: false },
+      audioLatar: { type: Boolean, default: false },
+      galeri: { type: Boolean, default: false },
+      googleMaps: { type: Boolean, default: false },
+      loveJourney: { type: Boolean, default: false },
+      pojokHadiah: { type: Boolean, default: false },
+      rsvp: { type: Boolean, default: false },
+      ucapan: { type: Boolean, default: false },
+      customDomain: { type: Boolean, default: false },
+    },
+    dataFitur: {
+      countdownDate: { type: Date, default: Date.now },
+      countdownTime: { type: String, default: "09:00:00" },
+      linkGoogleMaps: { type: String },
+      iFrameGoogleMaps: { type: String },
+    },
+    comments: [commentSchema],
+    loveJourney: [{ title: String, text: String }],
+
     slug: {
       type: String,
       required: true,
@@ -30,7 +62,7 @@ const invitationSchema = mongoose.Schema(
 
     // Data Konten - Data Acara
     waktuAkad: {
-      type: String,
+      type: Date,
     },
     waktuResepsi: {
       type: String,
@@ -39,12 +71,6 @@ const invitationSchema = mongoose.Schema(
       type: String,
     },
     lokasiResepsi: {
-      type: String,
-    },
-    linkGoogleMaps: {
-      type: String,
-    },
-    iFrameGoogleMaps: {
       type: String,
     },
 
