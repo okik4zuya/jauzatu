@@ -5,6 +5,7 @@ export { default as ErrorMessage } from "./ErrorMessage";
 export { default as Loading } from "./Loading";
 export { default as Spinner } from "./Spinner";
 export { default as AlertSuccess } from "./AlertSuccess";
+export { default as DeleteConfirmation } from "./DeleteConfirmation";
 
 export { default as SideMenu } from "./Dashboard/SideMenu/SideMenu";
 
@@ -37,6 +38,10 @@ export { default as LoveJourneyList } from "./Dashboard/FiturLoveJourney/LoveJou
 export { default as LoveJourneyModal } from "./Dashboard/FiturLoveJourney/LoveJourneyModal/LoveJourneyModal";
 export { default as LoveJourneyModalEdit } from "./Dashboard/FiturLoveJourney/LoveJourneyModal/LoveJourneyModalEdit";
 export { default as LoveJourneyItem } from "./Dashboard/FiturLoveJourney/LoveJourneyList/LoveJourneyItem/LoveJourneyItem";
+export { default as GaleriList } from "./Dashboard/FiturGaleri/GaleriList/GaleriList";
+export { default as GaleriModal } from "./Dashboard/FiturGaleri/GaleriModal/GaleriModal";
+export { default as GaleriModalEdit } from "./Dashboard/FiturGaleri/GaleriModal/GaleriModalEdit";
+export { default as GaleriItem } from "./Dashboard/FiturGaleri/GaleriList/GaleriItem/GaleriItem";
 
 //Features
 export { default as CountdownTimer } from "./Features/CountdownTimer/CountdownTimer";

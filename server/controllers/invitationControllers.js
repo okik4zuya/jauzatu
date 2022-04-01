@@ -61,6 +61,7 @@ const updateInvitation = asyncHandler(async (req, res) => {
     invitation.fitur = req.body.fitur;
     invitation.dataFitur = req.body.dataFitur;
     invitation.loveJourney = req.body.loveJourney;
+    invitation.galeri = req.body.galeri;
 
     const updatedInvitation = await invitation.save();
     res.json(updatedInvitation);

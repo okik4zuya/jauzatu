@@ -38,6 +38,7 @@ const invitationSchema = mongoose.Schema(
     },
     comments: [commentSchema],
     loveJourney: [{ title: String, text: String }],
+    galeri: [{ image: String }],
 
     slug: {
       type: String,

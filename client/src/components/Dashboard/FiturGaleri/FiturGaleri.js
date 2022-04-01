@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateInvitationAction } from "../../../actions/invitationActions";
 import AlertSuccess from "../../AlertSuccess";
 import Spinner from "../../Spinner";
+import { GaleriList, GaleriModal } from "../..";
 
 export default function FiturGaleri({ data }) {
   const dispatch = useDispatch();
@@ -51,7 +52,23 @@ export default function FiturGaleri({ data }) {
             {data.fitur.galeri ? "Aktif" : "Tidak Aktif"}
           </div>
         </div>
-        {successUpdate && <AlertSuccess>Update berhasil!</AlertSuccess>}
+        {isChecked && (
+          <div className="mt-6">
+            <div className="bg-white rounded-lg w-full  shadow-lg pt-4 pb-4">
+              <GaleriModal data={data} showButton />
+              {data?.loveJourney ? (
+                <GaleriList
+                // data={data}
+                //dataLoveJourney={data.loveJourney}
+                />
+              ) : (
+                <div className="w-3/4 text-xs text-center mx-auto">
+                  Isi form untuk mulai menambah Foto anda!
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </FrameDashboard>
   );

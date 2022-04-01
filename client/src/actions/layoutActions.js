@@ -5,6 +5,7 @@ import {
   IS_CREATED,
   IS_LOVEJOURNEY_EDIT,
   LOVEJOURNEY_ID,
+  SHOW_DELETE_CONFIRMATION,
   SHOW_LOVEJOURNEY_MODAL,
   SHOW_SIDE_MENU,
   SINGLE_LOVEJOURNEY,
@@ -30,4 +31,7 @@ export const setSingleLoveJourney = (data) => (dispatch) => {
 };
 export const setLoveJourneyId = (data) => (dispatch) => {
   dispatch({ type: LOVEJOURNEY_ID, payload: data });
+};
+export const setShowDeleteConfirmation = (data) => (dispatch) => {
+  dispatch({ type: SHOW_DELETE_CONFIRMATION, payload: data });
 };

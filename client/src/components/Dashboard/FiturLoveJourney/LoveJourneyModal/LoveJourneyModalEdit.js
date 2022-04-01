@@ -6,7 +6,7 @@ import {
   setSingleLoveJourney,
 } from "../../../../actions/layoutActions";
 
-export default function LoveJourneyModalEdit({ id, data }) {
+export default function LoveJourneyModalEdit({ data }) {
   const dispatch = useDispatch();
   const [dataLoveJourney, setDataLoveJourney] = useState(data?.loveJourney);
 
@@ -90,13 +90,21 @@ export default function LoveJourneyModalEdit({ id, data }) {
                       />
                     </div>
                     <div className="grid place-items-center mt-4 ">
-                      <button
-                        type="submit"
-                        className="primary__button"
-                        onClick={updateLoveJourney}
-                      >
-                        Update
-                      </button>
+                      <div className="flex">
+                        <button
+                          className="secondary__button"
+                          onClick={() => dispatch(setIsLoveJourneyEdit(false))}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          className="primary__button"
+                          onClick={updateLoveJourney}
+                        >
+                          Update
+                        </button>
+                      </div>
                     </div>
                   </form>
                 </div>

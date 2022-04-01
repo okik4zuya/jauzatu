@@ -188,6 +188,7 @@ export const updateInvitationAction =
         fitur,
         dataFitur,
         loveJourney,
+        galeri,
       } = updated;
 
       const { data } = await axios.put(
@@ -225,6 +226,7 @@ export const updateInvitationAction =
           fitur,
           dataFitur,
           loveJourney,
+          galeri,
         },
         config
       );

@@ -6,6 +6,7 @@ import {
   IS_LOVEJOURNEY_EDIT,
   SINGLE_LOVEJOURNEY,
   LOVEJOURNEY_ID,
+  SHOW_DELETE_CONFIRMATION,
 } from "../constants/layoutConstants";
 
 export const dashboardReducer = (
@@ -35,6 +36,8 @@ export const dashboardReducer = (
       return { ...state, singleLoveJourney: action.payload };
     case LOVEJOURNEY_ID:
       return { ...state, loveJourneyId: action.payload };
+    case SHOW_DELETE_CONFIRMATION:
+      return { ...state, showDeleteConfirmation: action.payload };
 
     default:
       return state;

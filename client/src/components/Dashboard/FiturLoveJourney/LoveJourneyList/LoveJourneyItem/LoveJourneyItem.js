@@ -1,13 +1,12 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateInvitationAction } from "../../../../../actions/invitationActions";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import { LoveJourneyModal, LoveJourneyModalEdit } from "../../../../";
+import { LoveJourneyModalEdit, DeleteConfirmation } from "../../../../";
 import {
   setIsLoveJourneyEdit,
   setLoveJourneyId,
-  setShowLoveJourneyModal,
+  setShowDeleteConfirmation,
   setSingleLoveJourney,
 } from "../../../../../actions/layoutActions";
 
@@ -19,7 +18,16 @@ export default function LoveJourneyItem({
   text,
 }) {
   const dispatch = useDispatch();
-  const { singleLoveJourney } = useSelector((state) => state.dashboard);
+  const { singleLoveJourney, showDeleteConfirmation } = useSelector(
+    (state) => state.dashboard
+  );
+
+  const openDeleteConfirmation = () => {
+    dispatch(setShowDeleteConfirmation(true));
+  };
+  const closeDeleteConfirmation = () => {
+    dispatch(setShowDeleteConfirmation(false));
+  };
 
   const deleteLoveJourney = (e) => {
     e.preventDefault();
@@ -30,6 +38,7 @@ export default function LoveJourneyItem({
         loveJourney: dataLoveJourney.filter((item) => item._id != id),
       })
     );
+    closeDeleteConfirmation();
   };
 
   const openEditModal = () => {
@@ -48,6 +57,7 @@ export default function LoveJourneyItem({
       <div className="flex bg-gray-100 pt-2 pl-2 pb-2 pr-2">
         <div className="flex-1">{title}</div>
         <LoveJourneyModalEdit id={id} data={data} />
+
         <div
           className="px-2 text-gray-500 cursor-pointer"
           onClick={openEditModal}
@@ -56,10 +66,16 @@ export default function LoveJourneyItem({
         </div>
         <div
           className="px-2 text-gray-500 cursor-pointer"
-          onClick={deleteLoveJourney}
+          onClick={openDeleteConfirmation}
         >
           <FaTrashAlt />
         </div>
+        <DeleteConfirmation
+          cancel={closeDeleteConfirmation}
+          ok={deleteLoveJourney}
+        >
+          Anda yakin akan menghapus cerita ini?
+        </DeleteConfirmation>
       </div>
       <div className="bg-gray-50 pt-2 pl-4 pb-2 pr-4">{text}</div>
     </div>

@@ -1,15 +1,10 @@
 import FrameDashboard from "../FrameDashboard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchInvitationAction,
-  updateInvitationAction,
-} from "../../../actions/invitationActions";
+import { updateInvitationAction } from "../../../actions/invitationActions";
 import AlertSuccess from "../../AlertSuccess";
 import Spinner from "../../Spinner";
 import { LoveJourneyList, LoveJourneyModal } from "../../";
-import { setShowLoveJourneyModal } from "../../../actions/layoutActions";
-import { useForceUpdate } from "@chakra-ui/react";
 
 export default function FiturLoveJourney({ data }) {
   const dispatch = useDispatch();
@@ -18,17 +13,6 @@ export default function FiturLoveJourney({ data }) {
     title: "",
     text: "",
   });
-  const updateLoveJourney = (e) => {
-    e.preventDefault();
-    dispatch(
-      updateInvitationAction({
-        ...data,
-        id: data?._id,
-        loveJourney: [...data?.loveJourney, singleLoveJourney],
-      })
-    );
-    setSingleLoveJourney({ title: "", text: "" });
-  };
 
   const invitationUpdate = useSelector((state) => state.invitationUpdate);
   const { loading: loadingUpdate, success: successUpdate } = invitationUpdate;
@@ -47,12 +31,6 @@ export default function FiturLoveJourney({ data }) {
       })
     );
   };
-
-  // console.log(`loveJourney: ${data?.fitur.loveJourney}`);
-  // console.log(`loveJourney: ${data?.dataFitur.loveJourney}`);
-  // console.log(`dataFitur: ${data?.dataFitur}`);
-  // console.log(data);
-  // console.log(`successUpdate: ${successUpdate}`);
 
   return (
     <FrameDashboard title="Love Journey">
