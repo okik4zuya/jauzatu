@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateInvitationAction } from "../../../actions/invitationActions";
 import AlertSuccess from "../../AlertSuccess";
 import Spinner from "../../Spinner";
+import { PojokHadiahList, PojokHadiahModal } from "../../";
 
 export default function FiturPojokHadiah({ data }) {
   const dispatch = useDispatch();
@@ -51,7 +52,19 @@ export default function FiturPojokHadiah({ data }) {
             {data.fitur.pojokHadiah ? "Aktif" : "Tidak Aktif"}
           </div>
         </div>
-        {successUpdate && <AlertSuccess>Update berhasil!</AlertSuccess>}
+        {isChecked && (
+          <div className="mt-6">
+            <div className="bg-white rounded-lg w-full  shadow-lg pt-4 pb-4">
+              <PojokHadiahModal
+                data={data}
+                dataPojokHadiah={data.pojokHadiah}
+                showButton
+              />
+
+              <PojokHadiahList data={data} dataPojokHadiah={data.pojokHadiah} />
+            </div>
+          </div>
+        )}
       </div>
     </FrameDashboard>
   );

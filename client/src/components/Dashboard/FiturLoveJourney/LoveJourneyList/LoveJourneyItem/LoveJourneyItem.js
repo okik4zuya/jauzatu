@@ -18,9 +18,6 @@ export default function LoveJourneyItem({
   text,
 }) {
   const dispatch = useDispatch();
-  const { singleLoveJourney, showDeleteConfirmation } = useSelector(
-    (state) => state.dashboard
-  );
 
   const openDeleteConfirmation = () => {
     dispatch(setShowDeleteConfirmation(true));

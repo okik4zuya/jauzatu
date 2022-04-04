@@ -35,10 +35,27 @@ const invitationSchema = mongoose.Schema(
       countdownTime: { type: String, default: "09:00:00" },
       linkGoogleMaps: { type: String },
       iFrameGoogleMaps: { type: String },
+      isAudioLatarCustom: { type: Boolean, default: false },
+      audioLatar: {
+        title: String,
+        artist: String,
+        url: String,
+      },
     },
     comments: [commentSchema],
     loveJourney: [{ title: String, text: String }],
     galeri: [{ image: String }],
+    pojokHadiah: [
+      {
+        channelType: String,
+        channelName: String,
+        channelNameLainnya: String,
+        name: String,
+        address: String,
+        image: String,
+        contact: String,
+      },
+    ],
 
     slug: {
       type: String,

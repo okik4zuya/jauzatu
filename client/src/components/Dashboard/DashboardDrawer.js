@@ -18,8 +18,7 @@ import SideMenu from "./SideMenu/SideMenu";
 
 export default function DashboardDrawer({ openMenu, setOpenMenu }) {
   const dispatch = useDispatch();
-  const layout = useSelector((state) => state.dashboard);
-  const { showSideMenu, active } = layout;
+  const { showSideMenu, active } = useSelector((state) => state.dashboard);
 
   return (
     <div className="">

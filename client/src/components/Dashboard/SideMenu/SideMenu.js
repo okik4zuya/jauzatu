@@ -25,8 +25,7 @@ import { setActive } from "../../../actions/layoutActions";
 
 export default function SideMenu() {
   const dispatch = useDispatch();
-  const layout = useSelector((state) => state.dashboard);
-  const { showSideMenu, active } = layout;
+  const { showSideMenu, active } = useSelector((state) => state.dashboard);
 
   const { userInfo } = useSelector((state) => state.userLogin);
 
@@ -34,7 +33,7 @@ export default function SideMenu() {
   const [expandFitur, setExpandFitur] = useState(false);
 
   return (
-    <aside className="w-[250px] hidden sm:block" aria-label="Sidebar">
+    <div className="w-[250px] hidden sm:block" aria-label="Sidebar">
       <div className="overflow-y-auto py-4 px-3 bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <ul class="space-y-2">
           <li onClick={() => dispatch(setActive("Overview"))}>
@@ -236,6 +235,6 @@ export default function SideMenu() {
           )}
         </ul>
       </div>
-    </aside>
+    </div>
   );
 }

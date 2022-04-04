@@ -56,50 +56,46 @@ export default function Header() {
   const [openLogin, setOpenLogin] = useState(false);
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-gold">
-      <Box px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box className="" onClick={() => navigate("/")}>
-            <Image
-              className=""
-              boxSize="40px"
-              src="https://i.ibb.co/wgJD0KF/logo-jauzatu-gold.png"
-              alt="Jauzatu"
-            />
-          </Box>
-
-          <HStack spacing={8} alignItems={"right"}>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
+    <div className="fixed top-0 left-0 right-0 bg-gold h-[60px]">
+      <div className="relative">
+        <div className="flex mt-[10px] px-4">
+          <div className="flex flex-1">
+            <div
+              className="w-[40px] aspect-square"
+              onClick={() => navigate("/")}
             >
-              <Link className="text-white" to={links.home.to}>
-                {links.home.name}
-              </Link>
-            </HStack>
-          </HStack>
-          <Flex alignItems={"center"}>
+              <img
+                className="object-fit object-cover w-full h-full"
+                //boxSize="40px"
+                src="https://i.ibb.co/wgJD0KF/logo-jauzatu-gold.png"
+                alt="Jauzatu"
+              />
+            </div>
+            <div className="flex">
+              <div className="flex items-center mx-4 text-white">
+                <div
+                  className="mx-4 cursor-pointer"
+                  onClick={() => navigate("/")}
+                >
+                  Home
+                </div>
+                <div>About</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex">
             {!userInfo ? (
               <>
-                <Button
-                  colorScheme="teal"
-                  color="white"
-                  as={Link}
-                  to={links.login.to}
+                <button
+                  className="secondary__button bg-white text-gold"
+                  onClick={() => navigate(links.login.to)}
                 >
                   {links.login.name}
-                </Button>
+                </button>
               </>
             ) : (
               <>
-                <Box
-                  className="mr-2 sm:hidden"
-                  onClick={isOpen ? onClose : onOpen}
-                >
-                  <Icon w={10} h={10} color="blackAlpha.400" as={HiViewGrid} />
-                </Box>
-
                 <Menu>
                   <MenuButton
                     as={Button}
@@ -130,18 +126,9 @@ export default function Header() {
                 </Menu>
               </>
             )}
-          </Flex>
-        </Flex>
-
-        {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={2} mt={2}>
-              <Link to={links.home.to}>{links.home.name}</Link>
-              <Link to={links.home.to}>{links.home.name}</Link>
-            </Stack>
-          </Box>
-        ) : null}
-      </Box>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

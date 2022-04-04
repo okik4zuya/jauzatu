@@ -6,6 +6,14 @@ import {
   IS_LOVEJOURNEY_EDIT,
   SINGLE_LOVEJOURNEY,
   LOVEJOURNEY_ID,
+  SHOW_GALERI_MODAL,
+  IS_GALERI_EDIT,
+  SINGLE_GALERI,
+  GALERI_ID,
+  SHOW_POJOKHADIAH_MODAL,
+  IS_POJOKHADIAH_EDIT,
+  SINGLE_POJOKHADIAH,
+  POJOKHADIAH_ID,
   SHOW_DELETE_CONFIRMATION,
 } from "../constants/layoutConstants";
 
@@ -18,6 +26,19 @@ export const dashboardReducer = (
     isLoveJourneyEdit: false,
     singleLoveJourney: { title: "", text: "" },
     loveJourneyId: 0,
+    showGaleriModal: false,
+    isGaleriEdit: false,
+    singleGaleri: { image: "" },
+    galeriId: 0,
+    singlePojokHadiah: {
+      channelType: "Rekening Bank",
+      channelName: "Bank BCA",
+      channelNameLainnya: "",
+      name: "",
+      address: "",
+      image: "",
+      contact: "",
+    },
   },
   action
 ) => {
@@ -36,6 +57,22 @@ export const dashboardReducer = (
       return { ...state, singleLoveJourney: action.payload };
     case LOVEJOURNEY_ID:
       return { ...state, loveJourneyId: action.payload };
+    case SHOW_GALERI_MODAL:
+      return { ...state, showGaleriModal: action.payload };
+    case IS_GALERI_EDIT:
+      return { ...state, isGaleriEdit: action.payload };
+    case SINGLE_GALERI:
+      return { ...state, singleGaleri: action.payload };
+    case GALERI_ID:
+      return { ...state, galeriId: action.payload };
+    case SHOW_POJOKHADIAH_MODAL:
+      return { ...state, showPojokHadiahModal: action.payload };
+    case IS_POJOKHADIAH_EDIT:
+      return { ...state, isPojokHadiahEdit: action.payload };
+    case SINGLE_POJOKHADIAH:
+      return { ...state, singlePojokHadiah: action.payload };
+    case POJOKHADIAH_ID:
+      return { ...state, pojokHadiahId: action.payload };
     case SHOW_DELETE_CONFIRMATION:
       return { ...state, showDeleteConfirmation: action.payload };
 

@@ -42,6 +42,14 @@ export { default as GaleriList } from "./Dashboard/FiturGaleri/GaleriList/Galeri
 export { default as GaleriModal } from "./Dashboard/FiturGaleri/GaleriModal/GaleriModal";
 export { default as GaleriModalEdit } from "./Dashboard/FiturGaleri/GaleriModal/GaleriModalEdit";
 export { default as GaleriItem } from "./Dashboard/FiturGaleri/GaleriList/GaleriItem/GaleriItem";
+export { default as PojokHadiahList } from "./Dashboard/FiturPojokHadiah/PojokHadiahList/PojokHadiahList";
+export { default as PojokHadiahModal } from "./Dashboard/FiturPojokHadiah/PojokHadiahModal/PojokHadiahModal";
+export { default as PojokHadiahModalEdit } from "./Dashboard/FiturPojokHadiah/PojokHadiahModal/PojokHadiahModalEdit";
+export { default as PojokHadiahItem } from "./Dashboard/FiturPojokHadiah/PojokHadiahList/PojokHadiahItem/PojokHadiahItem";
+export { default as AudioLatarList } from "./Dashboard/FiturAudioLatar/AudioLatarList/AudioLatarList";
+//export { default as AudioLatarModal } from "./Dashboard/FiturAudioLatar/AudioLatarModal/AudioLatarModal";
+//export { default as AudioLatarModalEdit } from "./Dashboard/FiturAudioLatar/AudioLatarModal/AudioLatarModalEdit";
+export { default as AudioLatarItem } from "./Dashboard/FiturAudioLatar/AudioLatarList/AudioLatarItem/AudioLatarItem";
 
 //Features
 export { default as CountdownTimer } from "./Features/CountdownTimer/CountdownTimer";

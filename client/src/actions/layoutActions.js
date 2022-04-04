@@ -9,6 +9,14 @@ import {
   SHOW_LOVEJOURNEY_MODAL,
   SHOW_SIDE_MENU,
   SINGLE_LOVEJOURNEY,
+  SINGLE_GALERI,
+  GALERI_ID,
+  IS_GALERI_EDIT,
+  SHOW_GALERI_MODAL,
+  SINGLE_POJOKHADIAH,
+  POJOKHADIAH_ID,
+  IS_POJOKHADIAH_EDIT,
+  SHOW_POJOKHADIAH_MODAL,
 } from "../constants/layoutConstants";
 
 export const set = (bool) => (dispatch) => {
@@ -19,6 +27,9 @@ export const setActive = (title) => (dispatch) => {
 };
 export const setIsCreated = (data) => (dispatch) => {
   dispatch({ type: IS_CREATED, payload: data });
+};
+export const setShowSideMenu = (data) => (dispatch) => {
+  dispatch({ type: SHOW_SIDE_MENU, payload: data });
 };
 export const setShowLoveJourneyModal = (data) => (dispatch) => {
   dispatch({ type: SHOW_LOVEJOURNEY_MODAL, payload: data });
@@ -31,6 +42,30 @@ export const setSingleLoveJourney = (data) => (dispatch) => {
 };
 export const setLoveJourneyId = (data) => (dispatch) => {
   dispatch({ type: LOVEJOURNEY_ID, payload: data });
+};
+export const setShowGaleriModal = (data) => (dispatch) => {
+  dispatch({ type: SHOW_GALERI_MODAL, payload: data });
+};
+export const setIsGaleriEdit = (data) => (dispatch) => {
+  dispatch({ type: IS_GALERI_EDIT, payload: data });
+};
+export const setSingleGaleri = (data) => (dispatch) => {
+  dispatch({ type: SINGLE_GALERI, payload: data });
+};
+export const setGaleriId = (data) => (dispatch) => {
+  dispatch({ type: GALERI_ID, payload: data });
+};
+export const setShowPojokHadiahModal = (data) => (dispatch) => {
+  dispatch({ type: SHOW_POJOKHADIAH_MODAL, payload: data });
+};
+export const setIsPojokHadiahEdit = (data) => (dispatch) => {
+  dispatch({ type: IS_POJOKHADIAH_EDIT, payload: data });
+};
+export const setSinglePojokHadiah = (data) => (dispatch) => {
+  dispatch({ type: SINGLE_POJOKHADIAH, payload: data });
+};
+export const setPojokHadiahId = (data) => (dispatch) => {
+  dispatch({ type: POJOKHADIAH_ID, payload: data });
 };
 export const setShowDeleteConfirmation = (data) => (dispatch) => {
   dispatch({ type: SHOW_DELETE_CONFIRMATION, payload: data });

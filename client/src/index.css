@@ -33,4 +33,7 @@
   .form__input {
     @apply shadow-sm bg-gray-50 border border-2 border-gold text-gray-900 text-sm rounded-lg focus:ring-gold focus:border-gold block w-full p-2.5 dark:bg-gray-700 dark:border-gold dark:placeholder-gray-400 dark:text-white dark:focus:ring-gold dark:focus:border-gold;
   }
+  .form__select {
+    @apply bg-gray-50 border border-2 border-gold text-gray-900 text-sm rounded-lg focus:ring-gold focus:border-gold block w-full p-2.5 dark:bg-gray-700 dark:border-gold dark:placeholder-gray-400 dark:text-white dark:focus:ring-gold dark:focus:border-gold;
+  }
 }

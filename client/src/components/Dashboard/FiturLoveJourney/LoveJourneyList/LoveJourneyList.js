@@ -7,6 +7,7 @@ export default function LoveJourneyList({ data, dataLoveJourney }) {
       <div className="px-4">
         {dataLoveJourney.map((item) => (
           <LoveJourneyItem
+            key={item._id}
             data={data}
             dataLoveJourney={dataLoveJourney}
             id={item._id}
