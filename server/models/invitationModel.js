@@ -1,8 +1,25 @@
 const mongoose = require("mongoose");
 
-const commentSchema = mongoose.Schema(
+const replySchema = mongoose.Schema({
+  name: { type: String },
+  text: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+
+const ucapanSchema = mongoose.Schema(
   {
+    name: { type: String },
     text: { type: String },
+    like: { type: Number },
+    //replyName: { type: String },
+    //replyText: { type: String },
+    reply: [
+      {
+        name: { type: String },
+        text: { type: String },
+        createdAt: { type: Date, default: Date.now },
+      },
+    ],
   },
   {
     timestamps: true,
@@ -42,7 +59,11 @@ const invitationSchema = mongoose.Schema(
         url: String,
       },
     },
-    comments: [commentSchema],
+    // ucapan: [
+    //   { name: String, text: String, like: Number, reply: String },
+    //   { timestamps: true },
+    // ],
+    ucapan: [ucapanSchema],
     loveJourney: [{ title: String, text: String }],
     galeri: [{ image: String }],
     pojokHadiah: [

@@ -63,6 +63,54 @@ const updateInvitation = asyncHandler(async (req, res) => {
     invitation.loveJourney = req.body.loveJourney;
     invitation.galeri = req.body.galeri;
     invitation.pojokHadiah = req.body.pojokHadiah;
+    invitation.ucapan = req.body.ucapan;
+
+    const updatedInvitation = await invitation.save();
+    res.json(updatedInvitation);
+  } else {
+    res.status(404);
+    throw new Error("Invitation not found");
+  }
+});
+const updateInvitationPublic = asyncHandler(async (req, res) => {
+  const invitation = await Invitation.findById(req.params.id);
+
+  if (invitation) {
+    invitation.slug = req.body.slug;
+    invitation.tema = req.body.tema;
+    invitation.namaLengkapPria = req.body.namaLengkapPria;
+    invitation.namaPria = req.body.namaPria;
+    invitation.namaLengkapWanita = req.body.namaLengkapWanita;
+    invitation.namaWanita = req.body.namaWanita;
+    invitation.waktuAkad = req.body.waktuAkad;
+    invitation.waktuResepsi = req.body.waktuResepsi;
+    invitation.lokasiAkad = req.body.lokasiAkad;
+    invitation.lokasiResepsi = req.body.lokasiResepsi;
+    invitation.teksTanggalDepan = req.body.teksTanggalDepan;
+    invitation.teksSalamPembuka = req.body.teksSalamPembuka;
+    invitation.teksPendahuluan = req.body.teksPendahuluan;
+    invitation.teksHariAkad = req.body.teksHariAkad;
+    invitation.teksTanggalAkad = req.body.teksTanggalAkad;
+    invitation.teksJamAkad = req.body.teksJamAkad;
+    invitation.teksHariResepsi = req.body.teksHariResepsi;
+    invitation.teksTanggalResepsi = req.body.teksTanggalResepsi;
+    invitation.teksJamResepsi = req.body.teksJamResepsi;
+    invitation.teksBulan = req.body.teksBulan;
+    invitation.teksTahun = req.body.teksTahun;
+    invitation.teksOrangTuaPria = req.body.teksOrangTuaPria;
+    invitation.teksOrangTuaWanita = req.body.teksOrangTuaWanita;
+    invitation.teksAyat = req.body.teksAyat;
+    invitation.teksPenutup = req.body.teksPenutup;
+    invitation.teksSalamPenutup = req.body.teksSalamPenutup;
+    invitation.teksKamiYangBerbahagia = req.body.teksKamiYangBerbahagia;
+    invitation.teksKelPria = req.body.teksKelPria;
+    invitation.teksKelWanita = req.body.teksKelWanita;
+    invitation.fitur = req.body.fitur;
+    invitation.dataFitur = req.body.dataFitur;
+    invitation.loveJourney = req.body.loveJourney;
+    invitation.galeri = req.body.galeri;
+    invitation.pojokHadiah = req.body.pojokHadiah;
+    invitation.ucapan = req.body.ucapan;
 
     const updatedInvitation = await invitation.save();
     res.json(updatedInvitation);
@@ -145,5 +193,6 @@ module.exports = {
   getInvitationById,
   deleteInvitationById,
   updateInvitation,
+  updateInvitationPublic,
   getInvitationBySlug,
 };
