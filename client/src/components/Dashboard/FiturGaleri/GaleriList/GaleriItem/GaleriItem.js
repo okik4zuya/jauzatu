@@ -34,7 +34,6 @@ export default function GaleriItem({ data, image, id, dataGaleri }) {
     closeDeleteConfirmation();
   };
 
-  console.log(galeriId);
   return (
     <div className=" shadow-lg rounded-lg overflow-hidden my-4">
       <div className="flex bg-gray-100 pt-2 pl-2 pb-2 pr-2">

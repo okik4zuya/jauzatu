@@ -65,12 +65,6 @@ export default function FiturAudioLatar({ data }) {
     );
   };
 
-  console.log(data.dataFitur);
-  console.log(`tempAudioLatar: ${tempAudioLatar.title}`);
-  console.log(`audiolatar: ${data?.fitur.audioLatar}`);
-  console.log(`openLainnya: ${openLainnya}`);
-  console.log(`custom: ${data.dataFitur.isAudioLatarCustom}`);
-
   return (
     <FrameDashboard title="Audio Latar">
       <div>

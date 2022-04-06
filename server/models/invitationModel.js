@@ -6,13 +6,20 @@ const replySchema = mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+const rsvpSchema = mongoose.Schema(
+  {
+    name: { type: String },
+    confirmation: { type: String },
+    attendees: { type: Number },
+  },
+  { timestamps: true }
+);
+
 const ucapanSchema = mongoose.Schema(
   {
     name: { type: String },
     text: { type: String },
     like: { type: Number },
-    //replyName: { type: String },
-    //replyText: { type: String },
     reply: [
       {
         name: { type: String },
@@ -47,6 +54,7 @@ const invitationSchema = mongoose.Schema(
       ucapan: { type: Boolean, default: false },
       customDomain: { type: Boolean, default: false },
     },
+    rsvp: [rsvpSchema],
     dataFitur: {
       countdownDate: { type: Date, default: Date.now },
       countdownTime: { type: String, default: "09:00:00" },
@@ -59,10 +67,6 @@ const invitationSchema = mongoose.Schema(
         url: String,
       },
     },
-    // ucapan: [
-    //   { name: String, text: String, like: Number, reply: String },
-    //   { timestamps: true },
-    // ],
     ucapan: [ucapanSchema],
     loveJourney: [{ title: String, text: String }],
     galeri: [{ image: String }],

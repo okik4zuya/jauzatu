@@ -4,12 +4,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateInvitationAction } from "../../../actions/invitationActions";
 import AlertSuccess from "../../AlertSuccess";
 import Spinner from "../../Spinner";
+import { RSVPList, RSVPOverview, RSVPForm } from "../../";
+import {
+  setIsRSVPAdd,
+  setIsRSVPEdit,
+  setRSVPId,
+  setShowRSVPModal,
+  setSingleRSVP,
+} from "../../../actions/layoutActions";
 
 export default function FiturRSVP({ data }) {
   const dispatch = useDispatch();
   const [isChecked, setIsChecked] = useState(data?.fitur.rsvp);
-  const invitationUpdate = useSelector((state) => state.invitationUpdate);
-  const { loading: loadingUpdate, success: successUpdate } = invitationUpdate;
+
+  const { loading: loadingUpdate, success: successUpdate } = useSelector(
+    (state) => state.invitationUpdate
+  );
+  const { isRSVPEdit, RSVPId, singleRSVP } = useSelector(
+    (state) => state.dashboard
+  );
   const updateHandler = (e) => {
     e.preventDefault();
     setIsChecked(!isChecked);
@@ -25,14 +38,27 @@ export default function FiturRSVP({ data }) {
       })
     );
   };
+  const openModal = () => {
+    dispatch(setIsRSVPEdit(false));
+    dispatch(setShowRSVPModal(true));
+    dispatch(
+      setSingleRSVP({
+        name: "",
+        confirmation: "Hadir",
+        attendees: 0,
+      })
+    );
+  };
 
-  console.log(`rsvp: ${data?.fitur.rsvp}`);
   return (
     <FrameDashboard title="RSVP">
       <div>
         <div className="px-6 flex mt-4 mb-4 items-center justify-center">
           <div className="mr-2 flex-1">Fitur RSVP</div>
           {loadingUpdate && <Spinner />}
+          <div className="mr-2">
+            {data.fitur.rsvp ? "Aktif" : "Tidak Aktif"}
+          </div>
           <label
             for="toggle-example"
             className="flex relative items-center cursor-pointer"
@@ -46,13 +72,27 @@ export default function FiturRSVP({ data }) {
             />
             <div className="w-11 h-6 bg-gray-200 rounded-full border border-gray-200 toggle-bg dark:bg-gray-700 dark:border-gray-600"></div>
           </label>
-
-          <div className="ml-2">
-            {data.fitur.rsvp ? "Aktif" : "Tidak Aktif"}
+        </div>
+      </div>
+      {isChecked && (
+        <div className="mt-6">
+          <div className="p-4">
+            <RSVPOverview data={data} dataRSVP={data.rsvp} />
+          </div>
+          {/* <div>
+            <RSVPForm data={data} />
+          </div> */}
+          <div className="flex items-center justify-center">
+            <button className="primary__button" onClick={openModal}>
+              Tambah RSVP
+            </button>
+          </div>
+          <div className=" pt-4 pb-4">
+            <RSVPList data={data} dataRSVP={data.rsvp} />
+            {/* <UcapanList data={data} dataUcapan={data.ucapan} /> */}
           </div>
         </div>
-        {successUpdate && <AlertSuccess>Update berhasil!</AlertSuccess>}
-      </div>
+      )}
     </FrameDashboard>
   );
 }

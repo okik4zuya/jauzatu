@@ -1,8 +1,6 @@
 import { GaleriItem } from "../../../";
 
 export default function GaleriList({ data, dataGaleri }) {
-  console.log(data);
-  console.log(dataGaleri);
   return (
     <>
       <div className="px-4">

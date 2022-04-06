@@ -2,8 +2,6 @@ import React from "react";
 import PojokHadiahItem from "./PojokHadiahItem/PojokHadiahItem";
 
 export default function PojokHadiahList({ data, dataPojokHadiah }) {
-  console.log(data);
-  console.log(dataPojokHadiah);
   return (
     <>
       <div className="px-4">

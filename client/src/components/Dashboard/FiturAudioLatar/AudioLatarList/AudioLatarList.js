@@ -2,8 +2,6 @@ import React from "react";
 import { AudioLatarItem, AudioLatarItemCustom } from "../../../";
 
 export default function AudioLatarList({ data, dataAudioLatar, musicList }) {
-  console.log(dataAudioLatar);
-  console.log(musicList);
   return (
     <>
       <div className="text-center font-bold">

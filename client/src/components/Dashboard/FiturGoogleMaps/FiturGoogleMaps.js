@@ -36,14 +36,15 @@ export default function FiturGoogleMaps({ data }) {
     );
   };
 
-  console.log(`linkGoogleMaps: ${data?.dataFitur.linkGoogleMaps}`);
-  console.log(`iFrameGoogleMaps: ${data?.dataFitur.iFrameGoogleMaps}`);
   return (
     <FrameDashboard title="Google Maps">
       <div>
         <div className="px-6 flex mt-4 mb-4 items-center justify-center">
           <div className="mr-2 flex-1">Fitur Google Maps</div>
           {loadingUpdate && <Spinner />}
+          <div className="mr-2">
+            {data.fitur.googleMaps ? "Aktif" : "Tidak Aktif"}
+          </div>
           <label
             for="toggle-example"
             className="flex relative items-center cursor-pointer"
@@ -57,10 +58,6 @@ export default function FiturGoogleMaps({ data }) {
             />
             <div className="w-11 h-6 bg-gray-200 rounded-full border border-gray-200 toggle-bg dark:bg-gray-700 dark:border-gray-600"></div>
           </label>
-
-          <div className="ml-2">
-            {data.fitur.googleMaps ? "Aktif" : "Tidak Aktif"}
-          </div>
         </div>
         <form onSubmit={updateHandler}>
           {isChecked && (

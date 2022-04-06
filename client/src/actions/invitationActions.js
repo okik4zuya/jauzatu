@@ -195,6 +195,7 @@ export const updateInvitationAction =
           galeri: updated.galeri,
           pojokHadiah: updated.pojokHadiah,
           ucapan: updated.ucapan,
+          rsvp: updated.rsvp,
         },
         config
       );

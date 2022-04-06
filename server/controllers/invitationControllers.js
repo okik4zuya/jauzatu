@@ -64,6 +64,7 @@ const updateInvitation = asyncHandler(async (req, res) => {
     invitation.galeri = req.body.galeri;
     invitation.pojokHadiah = req.body.pojokHadiah;
     invitation.ucapan = req.body.ucapan;
+    invitation.rsvp = req.body.rsvp;
 
     const updatedInvitation = await invitation.save();
     res.json(updatedInvitation);
@@ -111,6 +112,7 @@ const updateInvitationPublic = asyncHandler(async (req, res) => {
     invitation.galeri = req.body.galeri;
     invitation.pojokHadiah = req.body.pojokHadiah;
     invitation.ucapan = req.body.ucapan;
+    invitation.rsvp = req.body.rsvp;
 
     const updatedInvitation = await invitation.save();
     res.json(updatedInvitation);

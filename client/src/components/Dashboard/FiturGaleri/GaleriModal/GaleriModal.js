@@ -13,11 +13,6 @@ export default function GaleriModal({ data, dataGaleri }) {
 
   const { showGaleriModal } = useSelector((state) => state.dashboard);
 
-  // const chooseImage = ({ base64 }) => {
-  //   setTempImage(`${base64}`);
-  //   setImageItem("");
-  // };
-
   const openModal = (e) => {
     dispatch(setShowGaleriModal(true));
     setTempImage("");
@@ -52,21 +47,6 @@ export default function GaleriModal({ data, dataGaleri }) {
     });
   };
 
-  // const uploadImage = (e) => {
-  //   e.preventDefault();
-  //   dispatch(
-  //     updateInvitationAction({
-  //       ...data,
-  //       id: data?._id,
-  //       galeri: [...dataGaleri, { image: tempImage }],
-  //     })
-  //   );
-  //   dispatch(setShowGaleriModal(false));
-  // };
-
-  console.log(dataGaleri);
-  console.log(imageItem);
-  console.log(tempImage);
   return (
     <>
       <div className="grid place-items-center">

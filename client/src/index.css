@@ -16,7 +16,13 @@
     @apply flex items-center text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800;
   }
   .badge__gold {
-    @apply bg-gold text-white text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 mx-[0.5px] my-[0.5px];
+    @apply bg-gold text-white text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 mx-[0.5px] my-[0.5px] flex items-center;
+  }
+  .badge__yellow__200 {
+    @apply bg-yellow-200 text-yellow-600 text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 mx-[0.5px] my-[0.5px] flex items-center;
+  }
+  .badge__gray__200 {
+    @apply bg-gray-200 text-gray-500 text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-800 mx-[0.5px] my-[0.5px] flex items-center;
   }
   .badge__purple {
     @apply bg-purple-700 text-white text-[9px] font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800 mx-[0.5px] my-[0.5px];

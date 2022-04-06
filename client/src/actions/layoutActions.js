@@ -20,7 +20,12 @@ import {
   SHOW_POJOKHADIAH_MODAL,
   SINGLE_UCAPAN,
   SHOW_UCAPAN_REPLY_FORM,
+  SINGLE_RSVP,
   UCAPAN_ID,
+  IS_RSVP_EDIT,
+  IS_RSVP_ADD,
+  SHOW_RSVP_MODAL,
+  RSVP_ID,
 } from "../constants/layoutConstants";
 
 export const set = (bool) => (dispatch) => {
@@ -82,6 +87,21 @@ export const setUcapanId = (data) => (dispatch) => {
 };
 export const setShowUcapanReplyForm = (data) => (dispatch) => {
   dispatch({ type: SHOW_UCAPAN_REPLY_FORM, payload: data });
+};
+export const setSingleRSVP = (data) => (dispatch) => {
+  dispatch({ type: SINGLE_RSVP, payload: data });
+};
+export const setRSVPId = (data) => (dispatch) => {
+  dispatch({ type: RSVP_ID, payload: data });
+};
+export const setIsRSVPEdit = (data) => (dispatch) => {
+  dispatch({ type: IS_RSVP_EDIT, payload: data });
+};
+export const setIsRSVPAdd = (data) => (dispatch) => {
+  dispatch({ type: IS_RSVP_ADD, payload: data });
+};
+export const setShowRSVPModal = (data) => (dispatch) => {
+  dispatch({ type: SHOW_RSVP_MODAL, payload: data });
 };
 export const setShowDeleteConfirmation = (data) => (dispatch) => {
   dispatch({ type: SHOW_DELETE_CONFIRMATION, payload: data });

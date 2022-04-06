@@ -104,25 +104,6 @@ export default function PojokHadiahModal({
     }
   };
 
-  console.log(`channelType: ${singlePojokHadiah.channelType}`);
-  console.log(`channelName: ${singlePojokHadiah.channelName}`);
-  console.log(`channelNameLainnya: ${singlePojokHadiah.channelNameLainnya}`);
-  console.log(`name: ${singlePojokHadiah.name}`);
-  console.log(`address: ${singlePojokHadiah.address}`);
-  console.log(`image: ${singlePojokHadiah.image}`);
-  console.log(`contact: ${singlePojokHadiah.contact}`);
-  // console.log(singlePojokHadiah.image);
-  // console.log(data);
-  // console.log(dataPojokHadiah);
-
-  console.log(
-    imageList
-      .filter((item) => item.type === "Rekening Bank")
-      .map((item) => {
-        return item.name;
-      })
-  );
-
   return (
     <>
       {showButton && (

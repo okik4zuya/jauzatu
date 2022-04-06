@@ -31,8 +31,6 @@ export default function AudioLatarItem({
       })
     );
   };
-  console.log(dataAudioLatar);
-  //console.log(data);
 
   return (
     <>

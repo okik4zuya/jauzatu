@@ -18,6 +18,11 @@ import {
   SINGLE_UCAPAN,
   UCAPAN_ID,
   SHOW_UCAPAN_REPLY_FORM,
+  SINGLE_RSVP,
+  RSVP_ID,
+  IS_RSVP_EDIT,
+  IS_RSVP_ADD,
+  SHOW_RSVP_MODAL,
   SHOW_DELETE_CONFIRMATION,
 } from "../constants/layoutConstants";
 
@@ -50,6 +55,15 @@ export const dashboardReducer = (
       like: 0,
     },
     showUcapanReplyForm: false,
+    singleRSVP: {
+      name: "",
+      confirmation: "Hadir",
+      attendees: 0,
+    },
+    isRSVPEdit: false,
+    isRSVPAdd: false,
+    showRSVPModal: false,
+
   },
 
   action
@@ -93,6 +107,17 @@ export const dashboardReducer = (
       return { ...state, ucapanId: action.payload };
     case SHOW_UCAPAN_REPLY_FORM:
       return { ...state, showUcapanReplyForm: action.payload };
+    case SINGLE_RSVP:
+      return { ...state, singleRSVP: action.payload };
+    case RSVP_ID:
+      return { ...state, RSVPId: action.payload };
+    case IS_RSVP_ADD:
+      return { ...state, isRSVPAdd: action.payload };
+    case IS_RSVP_EDIT:
+      return { ...state, isRSVPEdit: action.payload };
+      case SHOW_RSVP_MODAL:
+      return { ...state, showRSVPModal: action.payload };
+
     case SHOW_DELETE_CONFIRMATION:
       return { ...state, showDeleteConfirmation: action.payload };
 

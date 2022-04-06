@@ -48,7 +48,6 @@ export default function LoveJourneyItem({
     );
     dispatch(setLoveJourneyId(id));
   };
-  console.log(data);
 
   return (
     <div className=" shadow-lg rounded-lg overflow-hidden my-4">

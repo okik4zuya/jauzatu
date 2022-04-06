@@ -51,14 +51,14 @@ export default function UcapanReplyForm({ id, data, dataUcapan }) {
             <div className="flex">
               <textarea
                 type="text"
-                className="form__input border-none resize-none h-[90px]"
+                className="form__input border-none resize-none h-[60px]"
                 placeholder="Balas ucapan..."
                 value={tempReply.text}
                 onChange={(e) =>
                   setTempReply({ ...tempReply, text: e.target.value })
                 }
               />
-              <div className="grid place-items-center">
+              <div className="grid place-items-center ml-2">
                 <div
                   className="grid place-items-center h-[40px] aspect-square  cursor-pointer text-gray-500"
                   onClick={submitReply}

@@ -41,7 +41,7 @@ export default function CountdownTimer({ datetime }) {
     return () => {
       clearInterval(interval.current);
     };
-  });
+  }, [timer]);
 
   return (
     <div className="grid place-items-center">

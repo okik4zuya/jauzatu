@@ -27,15 +27,15 @@ export default function FiturUcapan({ data }) {
     );
   };
 
-  console.log(data);
-
-  //console.log(`ucapan: ${data?.fitur.ucapan}`);
   return (
     <FrameDashboard title="Ucapan">
       <div>
         <div className="px-6 flex mt-4 mb-4 items-center justify-center">
           <div className="mr-2 flex-1">Fitur Ucapan</div>
           {loadingUpdate && <Spinner />}
+          <div className="mr-2">
+            {data.fitur.ucapan ? "Aktif" : "Tidak Aktif"}
+          </div>
           <label
             for="toggle-example"
             className="flex relative items-center cursor-pointer"
@@ -49,10 +49,6 @@ export default function FiturUcapan({ data }) {
             />
             <div className="w-11 h-6 bg-gray-200 rounded-full border border-gray-200 toggle-bg dark:bg-gray-700 dark:border-gray-600"></div>
           </label>
-
-          <div className="ml-2">
-            {data.fitur.ucapan ? "Aktif" : "Tidak Aktif"}
-          </div>
         </div>
       </div>
       {isChecked && (
