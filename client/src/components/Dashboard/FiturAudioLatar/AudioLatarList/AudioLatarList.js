@@ -1,19 +1,22 @@
 import React from "react";
-import { AudioLatarItem } from "../../../";
+import { AudioLatarItem, AudioLatarItemCustom } from "../../../";
 
 export default function AudioLatarList({ data, dataAudioLatar, musicList }) {
   console.log(dataAudioLatar);
   console.log(musicList);
   return (
     <>
+      <div className="text-center font-bold">
+        {data.dataFitur.isAudioLatarCustom ? "Set Custom Audio" : "Pilih Audio"}
+      </div>
       <div className="px-4">
         {data.dataFitur.isAudioLatarCustom ? (
-          <AudioLatarItem
+          <AudioLatarItemCustom
             data={data}
             dataAudioLatar={data.dataFitur.audioLatar}
-            title="Custom"
-            artist="Custom"
-            url="Custom"
+            title={data.dataFitur.audioLatar.title}
+            artist={data.dataFitur.audioLatar.artist}
+            url={data.dataFitur.audioLatar.url}
           />
         ) : (
           <div>

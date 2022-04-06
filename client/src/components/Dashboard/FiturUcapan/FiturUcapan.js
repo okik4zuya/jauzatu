@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateInvitationAction } from "../../../actions/invitationActions";
 import AlertSuccess from "../../AlertSuccess";
 import Spinner from "../../Spinner";
+import { UcapanList } from "../../";
 
 export default function FiturUcapan({ data }) {
   const dispatch = useDispatch();
@@ -26,7 +27,9 @@ export default function FiturUcapan({ data }) {
     );
   };
 
-  console.log(`ucapan: ${data?.fitur.ucapan}`);
+  console.log(data);
+
+  //console.log(`ucapan: ${data?.fitur.ucapan}`);
   return (
     <FrameDashboard title="Ucapan">
       <div>
@@ -51,8 +54,14 @@ export default function FiturUcapan({ data }) {
             {data.fitur.ucapan ? "Aktif" : "Tidak Aktif"}
           </div>
         </div>
-        {successUpdate && <AlertSuccess>Update berhasil!</AlertSuccess>}
       </div>
+      {isChecked && (
+        <div className="mt-6">
+          <div className="bg-blue-100 rounded-lg w-full shadow-lg pt-4 pb-4">
+            <UcapanList data={data} dataUcapan={data.ucapan} />
+          </div>
+        </div>
+      )}
     </FrameDashboard>
   );
 }

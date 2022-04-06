@@ -14,6 +14,10 @@ import {
   IS_POJOKHADIAH_EDIT,
   SINGLE_POJOKHADIAH,
   POJOKHADIAH_ID,
+  SHOW_AUDIOLATAR_MODAL,
+  SINGLE_UCAPAN,
+  UCAPAN_ID,
+  SHOW_UCAPAN_REPLY_FORM,
   SHOW_DELETE_CONFIRMATION,
 } from "../constants/layoutConstants";
 
@@ -39,7 +43,15 @@ export const dashboardReducer = (
       image: "",
       contact: "",
     },
+    showAudioLatarModal: false,
+    singleUcapan: {
+      name: "",
+      text: "",
+      like: 0,
+    },
+    showUcapanReplyForm: false,
   },
+
   action
 ) => {
   switch (action.type) {
@@ -73,6 +85,14 @@ export const dashboardReducer = (
       return { ...state, singlePojokHadiah: action.payload };
     case POJOKHADIAH_ID:
       return { ...state, pojokHadiahId: action.payload };
+    case SHOW_AUDIOLATAR_MODAL:
+      return { ...state, showAudioLatarModal: action.payload };
+    case SINGLE_UCAPAN:
+      return { ...state, singleUcapan: action.payload };
+    case UCAPAN_ID:
+      return { ...state, ucapanId: action.payload };
+    case SHOW_UCAPAN_REPLY_FORM:
+      return { ...state, showUcapanReplyForm: action.payload };
     case SHOW_DELETE_CONFIRMATION:
       return { ...state, showDeleteConfirmation: action.payload };
 

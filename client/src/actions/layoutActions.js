@@ -16,7 +16,11 @@ import {
   SINGLE_POJOKHADIAH,
   POJOKHADIAH_ID,
   IS_POJOKHADIAH_EDIT,
+  SHOW_AUDIOLATAR_MODAL,
   SHOW_POJOKHADIAH_MODAL,
+  SINGLE_UCAPAN,
+  SHOW_UCAPAN_REPLY_FORM,
+  UCAPAN_ID,
 } from "../constants/layoutConstants";
 
 export const set = (bool) => (dispatch) => {
@@ -66,6 +70,18 @@ export const setSinglePojokHadiah = (data) => (dispatch) => {
 };
 export const setPojokHadiahId = (data) => (dispatch) => {
   dispatch({ type: POJOKHADIAH_ID, payload: data });
+};
+export const setShowAudioLatarModal = (data) => (dispatch) => {
+  dispatch({ type: SHOW_AUDIOLATAR_MODAL, payload: data });
+};
+export const setSingleUcapan = (data) => (dispatch) => {
+  dispatch({ type: SINGLE_UCAPAN, payload: data });
+};
+export const setUcapanId = (data) => (dispatch) => {
+  dispatch({ type: UCAPAN_ID, payload: data });
+};
+export const setShowUcapanReplyForm = (data) => (dispatch) => {
+  dispatch({ type: SHOW_UCAPAN_REPLY_FORM, payload: data });
 };
 export const setShowDeleteConfirmation = (data) => (dispatch) => {
   dispatch({ type: SHOW_DELETE_CONFIRMATION, payload: data });
