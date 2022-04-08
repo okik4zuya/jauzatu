@@ -2,6 +2,16 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../utils/generateToken");
 
+const getUsers = asyncHandler(async (req, res) => {
+  if (req.user._id != process.env.SUPERADMIN_ID) {
+    res.status(400);
+    throw new Error("You can't perform this action!");
+  } else {
+    const users = await User.find();
+    res.json(users);
+  }
+});
+
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, pic } = req.body;
 
@@ -87,4 +97,15 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { registerUser, authUser, updateUserProfile };
+const getUserAdmin = asyncHandler(async (req, res) => {
+  const userAdmin = await User.find({ _id: process.env.SUPERADMIN_ID });
+  res.json(userAdmin);
+});
+
+module.exports = {
+  getUsers,
+  registerUser,
+  authUser,
+  updateUserProfile,
+  getUserAdmin,
+};

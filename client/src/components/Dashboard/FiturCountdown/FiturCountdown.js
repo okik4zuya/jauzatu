@@ -6,6 +6,7 @@ import CountdownTimer from "../../Features/CountdownTimer/CountdownTimer";
 import Spinner from "../../Spinner";
 import FrameDashboard from "../FrameDashboard";
 import DatePicker from "react-datepicker";
+import Countdown from "react-countdown";
 
 import "react-datepicker/dist/react-datepicker.min.css";
 import { format, parseISO } from "date-fns";
@@ -62,9 +63,9 @@ export default function FiturCountdown({ data }) {
     //setCountdownDate(data.dataFitur.countdownDate);
     //setFormattedDate(parseISO(countdownDate));
     setFormattedDate(format(parseISO(countdownDate), "yyyy-MM-dd"));
-    // setCountdownDateTime(
-    //   `${format(parseISO(countdownDate), "MMM dd yyyy ")} ${countdownTime}`
-    // );
+    setCountdownDateTime(
+      `${format(parseISO(countdownDate), "MMM dd yyyy ")} ${countdownTime}`
+    );
   }, [successUpdate]);
 
   console.log(countdownDateTime);
@@ -124,8 +125,9 @@ export default function FiturCountdown({ data }) {
         </div> */}
         {successUpdate && <AlertSuccess>Update berhasil!</AlertSuccess>}
 
-        <div className="text-center mt-4">Preview</div>
-        <CountdownTimer datetime={countdownDateTime} />
+        <div className="text-center mt-4 font-bold text-xl">Preview</div>
+        <div>{/* <Countdown date={Date.now() + 20000} /> */}</div>
+        <CountdownTimer datetime={"Apr 10 2022, 00:00:00"} />
       </div>
     </FrameDashboard>
   );

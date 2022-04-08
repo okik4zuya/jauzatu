@@ -25,6 +25,7 @@ import {
   IS_RSVP_EDIT,
   IS_RSVP_ADD,
   SHOW_RSVP_MODAL,
+  SEARCH_RSVP,
   RSVP_ID,
 } from "../constants/layoutConstants";
 
@@ -102,6 +103,9 @@ export const setIsRSVPAdd = (data) => (dispatch) => {
 };
 export const setShowRSVPModal = (data) => (dispatch) => {
   dispatch({ type: SHOW_RSVP_MODAL, payload: data });
+};
+export const setSearchRSVP = (data) => (dispatch) => {
+  dispatch({ type: SEARCH_RSVP, payload: data });
 };
 export const setShowDeleteConfirmation = (data) => (dispatch) => {
   dispatch({ type: SHOW_DELETE_CONFIRMATION, payload: data });

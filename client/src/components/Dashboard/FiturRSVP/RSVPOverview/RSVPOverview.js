@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { RSVPSingleStat } from "../../../";
 
 export default function RSVPOverview({ data, dataRSVP }) {
@@ -33,7 +34,7 @@ export default function RSVPOverview({ data, dataRSVP }) {
     <>
       <div className="text-center font-bold text-xl">Overview</div>
       <div className="flex flex-wrap justify-center">
-        <RSVPSingleStat title="Hadir" value={stat.hadir} />
+        <RSVPSingleStat title="Konfirmasi Hadir" value={stat.hadir} />
         <RSVPSingleStat title="Jumlah Hadir" value={stat.jumlahHadir} />
         <RSVPSingleStat title="Tidak Hadir" value={stat.tidakHadir} />
         <RSVPSingleStat title="Ragu-ragu" value={stat.raguRagu} />

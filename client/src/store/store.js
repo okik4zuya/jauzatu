@@ -21,6 +21,7 @@ import {
   invitationFetchReducer,
 } from "../reducers/invitationReducers";
 import { dashboardReducer } from "../reducers/layoutReducers";
+import { adminReducer } from "../reducers/adminReducers";
 
 const reducer = combineReducers({
   // List of reducers
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   noteDelete: noteDeleteReducer,
   userUpdate: userUpdateReducer,
   dashboard: dashboardReducer,
+  admin: adminReducer,
   invitationList: invitationListReducer,
   invitationCreate: invitationCreateReducer,
   invitationUpdate: invitationUpdateReducer,

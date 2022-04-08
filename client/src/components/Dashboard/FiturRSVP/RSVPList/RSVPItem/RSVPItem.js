@@ -27,7 +27,7 @@ export default function RSVPItem({
   const dispatch = useDispatch();
   const [index, setIndex] = useState("");
   const [badge, setBadge] = useState("");
-  const { RSVPId, isRSVPEdit, isRSVPAdd, singleRSVP } = useSelector(
+  const { RSVPId, isRSVPEdit, isRSVPAdd, singleRSVP, searchRSVP } = useSelector(
     (state) => state.dashboard
   );
 
@@ -48,7 +48,7 @@ export default function RSVPItem({
       default:
         break;
     }
-  }, [dataRSVP]);
+  }, [dataRSVP, searchRSVP]);
 
   const openDeleteConfirmation = () => {
     dispatch(setShowDeleteConfirmation(true));

@@ -22,4 +22,5 @@ export const RSVP_ID = "RSVP_ID";
 export const IS_RSVP_EDIT = "IS_RSVP_EDIT";
 export const IS_RSVP_ADD = "IS_RSVP_ADD";
 export const SHOW_RSVP_MODAL = "SHOW_RSVP_MODAL";
+export const SEARCH_RSVP = "SEARCH_RSVP";
 export const SHOW_AUDIOLATAR_MODAL = "SHOW_AUDIOLATAR_MODAL";

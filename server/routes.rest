@@ -9,6 +9,7 @@ Content-Type: application/json
 
     }
 
+
 ###
 POST http://localhost:5000/api/users/login
 Content-Type: application/json
@@ -94,3 +95,113 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDI5ZWQyN
     {
         "slug": "slug01"        
     }
+
+// ------- Provider API Testing ----------
+// createProvider
+###
+POST http://localhost:5000/api/provider/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+
+{
+    "providerName": "test02"
+}
+
+// getProvider
+###
+GET http://localhost:5000/api/provider
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+
+// getProviderById
+###
+GET http://localhost:5000/api/provider/6250163dc7f95587a563c39e
+
+// deleteProviderById
+###
+DELETE http://localhost:5000/api/provider/6250163dc7f95587a563c39e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+
+// updateProviderById
+###
+PUT http://localhost:5000/api/provider/6250163dc7f95587a563c39e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+
+{
+    "providerName": "test01",
+     "music": [{
+        "title": "Sebiru Hari Ini",
+        "artist": "Edcoustic",
+        "url": "https://res.cloudinary.com/dashgfoiauhgjfeagf"
+    },
+    {
+        "title": "All of Me",
+        "artist": "John Legend",
+        "url": "https://res.cloudinary.com/dashgfoiauhgjfeagf"
+    },
+
+  {
+    "title": "Barakallah",
+    "artist": "Maher Zein",
+    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQbb"
+  }
+    ],
+    "theme": [   
+        {    
+    "image":
+      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    "title": "Tema 1",
+    "tag": ["slide", "customable"],
+    "description": "Tema dengan nuansa vintage dengan tampilan minimalis.",
+    "demoLink": "https://www.jazuaatu.com/tema01"
+  },
+  {
+    
+    "image":
+      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    "title": "Tema 2",
+    "tag": ["scroll", "customable"],
+    "description": "Tema dengan nuansa vintage dengan tampilan minimalis.",
+    "demoLink": "https://www.jazuaatu.com/tema02"
+  },
+  {
+    
+    "image":
+      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    "title": "Tema 3",
+    "tag": ["slide"],
+    "description": "Tema dengan nuansa vintage dengan tampilan minimalis.",
+    "demoLink": "https://www.jazuaatu.com/tema03"
+  } 
+    ]
+}
+
+// --------- User API Testing ----------
+// Get User Admin
+###
+GET http://localhost:5000/api/users/useradmin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+
+
+// Update User Admin
+###
+POST http://localhost:5000/api/users/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+
+{
+        "_id": "62500f9d0b406cd5305a36dd",
+    "name": "Super Admin",
+    "email": "superadmin@jauzatu.com",
+    "isAdmin": true,
+    "accountType": "Silver",
+    "pic": "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+}
+
+// Get All Users
+###
+GET http://localhost:5000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTAwZjlkMGI0MDZjZDUzMDVhMzZkZCIsImlhdCI6MTY0OTQxNDA2MX0.UCVVbbT5Bfl6GbXz90M3yJU6TvPZPKio-yoNoeysULM
+ 
+
+

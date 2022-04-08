@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Card from "./Card/Card";
 
 export default function CountdownTimer({ datetime }) {
   const [timer, setTimer] = useState({
@@ -47,23 +48,16 @@ export default function CountdownTimer({ datetime }) {
     <div className="grid place-items-center">
       <div className="flex">
         <div className="flex">
-          <div>{timer.days} </div>
-          <div>Hari </div>
-          <div>:</div>
+          <Card tick={timer.days} label="Hari" />
         </div>
         <div className="flex">
-          <div>{timer.hours} </div>
-          <div>Jam </div>
-          <div>:</div>
+          <Card tick={timer.hours} label="Jam" />
         </div>
         <div className="flex">
-          <div>{timer.minutes} </div>
-          <div>Menit </div>
-          <div>:</div>
+          <Card tick={timer.minutes} label="Menit" />
         </div>
         <div className="flex">
-          <div>{timer.seconds} </div>
-          <div>Detik </div>
+          <Card tick={timer.seconds} label="Detik" />
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import MyNotes from "./pages/MyNotes/MyNotes";
+import Admin from "./pages/Admin/Admin";
 import SingleNote from "./pages/SingleNote/SingleNote";
 import CreateNote from "./pages/SingleNote/CreateNote";
 
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} exact />
           <Route path="/app/dashboard" element={<Dashboard />} exact />
+          <Route path="/app/admin" element={<Admin />} exact />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/mynotes" element={<MyNotes search={search} />} />

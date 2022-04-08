@@ -9,6 +9,7 @@ import {
   setIsRSVPAdd,
   setIsRSVPEdit,
   setRSVPId,
+  setSearchRSVP,
   setShowRSVPModal,
   setSingleRSVP,
 } from "../../../actions/layoutActions";
@@ -20,9 +21,11 @@ export default function FiturRSVP({ data }) {
   const { loading: loadingUpdate, success: successUpdate } = useSelector(
     (state) => state.invitationUpdate
   );
-  const { isRSVPEdit, RSVPId, singleRSVP } = useSelector(
+  const { isRSVPEdit, RSVPId, singleRSVP, searchRSVP } = useSelector(
     (state) => state.dashboard
   );
+
+  console.log(searchRSVP);
   const updateHandler = (e) => {
     e.preventDefault();
     setIsChecked(!isChecked);
@@ -76,17 +79,30 @@ export default function FiturRSVP({ data }) {
       </div>
       {isChecked && (
         <div className="mt-6">
-          <div className="p-4">
+          <div className="p-2">
             <RSVPOverview data={data} dataRSVP={data.rsvp} />
           </div>
-          {/* <div>
-            <RSVPForm data={data} />
-          </div> */}
-          <div className="flex items-center justify-center">
-            <button className="primary__button" onClick={openModal}>
-              Tambah RSVP
-            </button>
+
+          <div className=" flex items-center justify-center mt-6">
+            <div className="w-1/3 mr-4">
+              <select
+                type="text"
+                className="form__select "
+                onChange={(e) => dispatch(setSearchRSVP(e.target.value))}
+              >
+                <option value="">Semua</option>
+                <option>Hadir</option>
+                <option>Tidak Hadir</option>
+                <option>Ragu-ragu</option>
+              </select>
+            </div>
+            <div className="flex items-center ">
+              <button className="primary__button" onClick={openModal}>
+                Tambah RSVP
+              </button>
+            </div>
           </div>
+
           <div className=" pt-4 pb-4">
             <RSVPList data={data} dataRSVP={data.rsvp} />
             {/* <UcapanList data={data} dataUcapan={data.ucapan} /> */}

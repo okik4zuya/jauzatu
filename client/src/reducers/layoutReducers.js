@@ -23,6 +23,7 @@ import {
   IS_RSVP_EDIT,
   IS_RSVP_ADD,
   SHOW_RSVP_MODAL,
+  SEARCH_RSVP,
   SHOW_DELETE_CONFIRMATION,
 } from "../constants/layoutConstants";
 
@@ -63,7 +64,7 @@ export const dashboardReducer = (
     isRSVPEdit: false,
     isRSVPAdd: false,
     showRSVPModal: false,
-
+    searchRSVP: "",
   },
 
   action
@@ -115,8 +116,10 @@ export const dashboardReducer = (
       return { ...state, isRSVPAdd: action.payload };
     case IS_RSVP_EDIT:
       return { ...state, isRSVPEdit: action.payload };
-      case SHOW_RSVP_MODAL:
+    case SHOW_RSVP_MODAL:
       return { ...state, showRSVPModal: action.payload };
+    case SEARCH_RSVP:
+      return { ...state, searchRSVP: action.payload };
 
     case SHOW_DELETE_CONFIRMATION:
       return { ...state, showDeleteConfirmation: action.payload };

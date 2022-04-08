@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateInvitationAction } from "../../../../actions/invitationActions";
 import {
@@ -19,26 +20,13 @@ export default function RSVPEditModal({ data, dataRSVP }) {
   const closeModal = () => {
     dispatch(setShowRSVPModal(false));
   };
-  const submitRSVP = (e) => {
-    e.preventDefault();
-    dispatch(
-      updateInvitationAction(
-        {
-          ...data,
-          id: data?._id,
-          rsvp: [
-            ...data.rsvp,
-            {
-              name: singleRSVP.name,
-              confirmation: singleRSVP.confirmation,
-              attendees: singleRSVP.attendees,
-            },
-          ],
-        },
-        true
-      )
-    );
-  };
+
+  useEffect(() => {
+    if (singleRSVP.confirmation !== "Hadir") {
+      dispatch(setSingleRSVP({ ...singleRSVP, attendees: 0 }));
+    }
+  }, [singleRSVP.confirmation]);
+
   const updateRSVP = (e) => {
     if (isRSVPEdit) {
       e.preventDefault();

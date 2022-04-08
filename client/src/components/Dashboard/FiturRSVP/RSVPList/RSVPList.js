@@ -1,6 +1,11 @@
+import { useDispatch, useSelector } from "react-redux";
 import { RSVPItem, RSVPForm } from "../../../";
+import { setSearchRSVP } from "../../../../actions/layoutActions";
 
 export default function RSVPList({ data, dataRSVP }) {
+  const dispatch = useDispatch();
+  const { searchRSVP } = useSelector((state) => state.dashboard);
+  console.log(searchRSVP);
   return (
     <>
       <div className="shadow-lg rounded-lg overflow-hidden ">
@@ -14,8 +19,12 @@ export default function RSVPList({ data, dataRSVP }) {
             .sort(function (a, b) {
               return new Date(b.createdAt) - new Date(a.createdAt);
             })
+            .filter(
+              (item) => item.confirmation === searchRSVP || searchRSVP === ""
+            )
             .map((item) => (
               <RSVPItem
+                key={item._id}
                 id={item._id}
                 data={data}
                 dataRSVP={dataRSVP}

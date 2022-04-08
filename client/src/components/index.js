@@ -24,7 +24,7 @@ export { default as InfoUndangan } from "./Dashboard/InfoUndangan/InfoUndangan";
 export { default as BelumBuat } from "./Dashboard/BelumBuat";
 export { default as TemaCard } from "./Dashboard/PilihTema/TemaCard/TemaCard";
 
-// Fitur dalam Halaman Dashboard
+// Dashboard
 export { default as FiturAudioLatar } from "./Dashboard/FiturAudioLatar/FiturAudioLatar";
 export { default as FiturCountdown } from "./Dashboard/FiturCountdown/FiturCountdown";
 export { default as FiturGaleri } from "./Dashboard/FiturGaleri/FiturGaleri";
@@ -64,3 +64,12 @@ export { default as RSVPSingleStat } from "./Dashboard/FiturRSVP/RSVPOverview/RS
 
 //Features
 export { default as CountdownTimer } from "./Features/CountdownTimer/CountdownTimer";
+
+// Admin
+
+export { default as SideMenuAdmin } from "./Admin/SideMenuAdmin/SideMenuAdmin";
+export { default as OverviewAdmin } from "./Admin/Overview/Overview";
+export { default as User } from "./Admin/User/User";
+export { default as Undangan } from "./Admin/Undangan/Undangan";
+export { default as Tema } from "./Admin/Tema/Tema";
+export { default as Audio } from "./Admin/Audio/Audio";
