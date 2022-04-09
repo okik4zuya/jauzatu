@@ -43,6 +43,7 @@ const links = {
   logout: { name: "Logout", to: "/logout" },
   profile: { name: "Profile", to: "/profile" },
   dashboard: { name: "Dashboard", to: "/app/dashboard" },
+  admin: { name: "Admin", to: "/app/admin" },
 };
 
 export default function Header() {
@@ -50,8 +51,9 @@ export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo, isLogin } = userLogin;
+  const { loading, error, userInfo, isLogin } = useSelector(
+    (state) => state.userLogin
+  );
 
   const [openLogin, setOpenLogin] = useState(false);
 
@@ -109,9 +111,15 @@ export default function Header() {
                     </div>
                   </MenuButton>
                   <MenuList className="h-auto">
-                    <MenuItem as={Link} to={links.dashboard.to}>
-                      {links.dashboard.name}
-                    </MenuItem>
+                    {userInfo.isAdmin == true ? (
+                      <MenuItem as={Link} to={links.admin.to}>
+                        {links.admin.name}
+                      </MenuItem>
+                    ) : (
+                      <MenuItem as={Link} to={links.dashboard.to}>
+                        {links.dashboard.name}
+                      </MenuItem>
+                    )}
 
                     <MenuDivider />
                     <MenuItem

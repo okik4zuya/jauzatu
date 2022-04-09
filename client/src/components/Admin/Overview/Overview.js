@@ -1,5 +1,9 @@
-import React from "react";
+import FrameAdmin from "../FrameAdmin";
 
 export default function Overview() {
-  return <div>Overview</div>;
+  return (
+    <FrameAdmin title="Overview">
+      <div>Test</div>
+    </FrameAdmin>
+  );
 }

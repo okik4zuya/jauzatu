@@ -1,6 +1,25 @@
 const asyncHandler = require("express-async-handler");
 const Invitation = require("../models/invitationModel");
 
+const getAllInvitations = asyncHandler(async (req, res) => {
+  const invitations = await Invitation.find();
+  res.json(invitations);
+});
+
+const getInvitationList = asyncHandler(async (req, res) => {
+  const invitations = await Invitation.find();
+  res.json(
+    invitations.map((item) => ({
+      _id: item._id,
+      user: item.user,
+      slug: item.slug,
+      tema: item.tema,
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt,
+    }))
+  );
+});
+
 const getInvitationByUser = asyncHandler(async (req, res) => {
   const invitationByUser = await Invitation.find({ user: req.user._id });
   res.json(invitationByUser);
@@ -197,4 +216,6 @@ module.exports = {
   updateInvitation,
   updateInvitationPublic,
   getInvitationBySlug,
+  getAllInvitations,
+  getInvitationList,
 };

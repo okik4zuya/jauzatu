@@ -1,5 +1,9 @@
-import React from "react";
+import FrameAdmin from "../FrameAdmin";
 
 export default function Audio() {
-  return <div>Audio</div>;
+  return (
+    <FrameAdmin title="Audio">
+      <div>Test</div>
+    </FrameAdmin>
+  );
 }

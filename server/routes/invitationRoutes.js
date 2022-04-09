@@ -7,9 +7,14 @@ const {
   updateInvitation,
   updateInvitationPublic,
   getInvitationBySlug,
+  getAllInvitations,
+  getInvitationList,
 } = require("../controllers/invitationControllers");
 const { protect } = require("../middleware/authMiddleware");
 const router = express.Router();
+
+router.route("/").get(protect, getAllInvitations);
+router.route("/list").get(protect, getInvitationList);
 
 router
   .route("/id/:id")
