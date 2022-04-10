@@ -21,6 +21,15 @@ export default function Admin() {
   const [userData, setUserData] = useState();
   const { active } = useSelector((state) => state.admin);
   const { userInfo } = useSelector((state) => state.userLogin);
+  const { success: successCreate } = useSelector(
+    (state) => state.invitationCreate
+  );
+  const { success: successUpdate } = useSelector(
+    (state) => state.invitationUpdate
+  );
+  const { success: successDelete } = useSelector(
+    (state) => state.invitationDelete
+  );
 
   useEffect(() => {
     if (!userInfo) {
@@ -56,25 +65,32 @@ export default function Admin() {
         setUserData([]);
       }
     }
-  }, [active, userInfo]);
-
-  //console.log(data?.data[0]);
-  console.log(userData?.data);
+  }, [active, userInfo, successUpdate, successCreate, successDelete]);
 
   return (
     <div className="bg-gray-200 w-full min-h-screen pt-20 pb-40">
       <div className="flex w-full lg:w-2/3 mx-auto px-4 ">
         <SideMenuAdmin />
         <div className="flex-auto bg-white p-4 h-full md:w-[50vw] w-[100vw] md:ml-[20px] mx-[10px] rounded-xl shadow-lg">
-          {active === "Overview" && <OverviewAdmin />}
+          {active === "Overview" && (
+            <OverviewAdmin
+              invitationList={invitationList?.data}
+              userData={userData?.data}
+              provider={provider?.data[0]}
+            />
+          )}
           {active === "Undangan" && (
             <Undangan
               invitationList={invitationList?.data}
               userData={userData?.data}
             />
           )}
-          {active === "Audio" && <Audio />}
-          {active === "Tema" && <Tema />}
+          {active === "Audio" && (
+            <Audio audioList={provider.data[0].music} provider={provider} />
+          )}
+          {active === "Tema" && (
+            <Tema themes={provider?.data[0].theme} provider={provider} />
+          )}
           {active === "User" && <User userData={userData?.data} />}
         </div>
       </div>

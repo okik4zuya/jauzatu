@@ -54,48 +54,49 @@ export const listInvitations = () => async (dispatch, getState) => {
   }
 };
 
-export const createInvitationAction = (slug) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: INVITATION_CREATE_REQUEST,
-    });
+export const createInvitationAction =
+  (slug, user) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: INVITATION_CREATE_REQUEST,
+      });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+      const {
+        userLogin: { userInfo },
+      } = getState();
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
 
-    const { data } = await axios.post(
-      `/api/invitations/create`,
-      { slug },
-      config
-    );
+      const { data } = await axios.post(
+        `/api/invitations/create`,
+        { slug, user },
+        config
+      );
 
-    dispatch({
-      type: USER_CREATE_INVITATION,
-    });
+      dispatch({
+        type: USER_CREATE_INVITATION,
+      });
 
-    dispatch({
-      type: INVITATION_CREATE_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({
-      type: INVITATION_CREATE_FAIL,
-      payload: message,
-    });
-  }
-};
+      dispatch({
+        type: INVITATION_CREATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({
+        type: INVITATION_CREATE_FAIL,
+        payload: message,
+      });
+    }
+  };
 
 export const deleteInvitationAction = (id) => async (dispatch, getState) => {
   try {

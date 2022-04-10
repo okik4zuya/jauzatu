@@ -23,6 +23,22 @@ export const adminReducer = (
       return { ...state, searchInvitation: action.payload };
     case "FILTER_INVITATION":
       return { ...state, filterInvitation: action.payload };
+    case "SHOW_TEMA_MODAL":
+      return { ...state, showTemaModal: action.payload };
+    case "SHOW_AUDIO_MODAL":
+      return { ...state, showAudioModal: action.payload };
+    case "SHOW_USER_MODAL":
+      return { ...state, showUserModal: action.payload };
+    case "SHOW_UNDANGAN_MODAL":
+      return { ...state, showUndanganModal: action.payload };
+    case "IS_TEMA_EDIT":
+      return { ...state, isTemaEdit: action.payload };
+    case "IS_UNDANGAN_EDIT":
+      return { ...state, isUndanganEdit: action.payload };
+    case "IS_USER_EDIT":
+      return { ...state, isUserEdit: action.payload };
+    case "IS_AUDIO_EDIT":
+      return { ...state, isAudioEdit: action.payload };
 
     default:
       return state;

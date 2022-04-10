@@ -6,6 +6,7 @@ export { default as Loading } from "./Loading";
 export { default as Spinner } from "./Spinner";
 export { default as AlertSuccess } from "./AlertSuccess";
 export { default as DeleteConfirmation } from "./DeleteConfirmation";
+export { default as FrameModal } from "./FrameModal";
 
 export { default as SideMenu } from "./Dashboard/SideMenu/SideMenu";
 
@@ -76,3 +77,12 @@ export { default as UserList } from "./Admin/User/UserList/UserList";
 export { default as UserItem } from "./Admin/User/UserList/UserItem/UserItem";
 export { default as UndanganList } from "./Admin/Undangan/UndanganList/UndanganList";
 export { default as UndanganItem } from "./Admin/Undangan/UndanganList/UndanganItem/UndanganItem";
+export { default as TemaItem } from "./Admin/Tema/TemaList/TemaItem/TemaItem";
+export { default as TemaList } from "./Admin/Tema/TemaList/TemaList";
+export { default as AudioItem } from "./Admin/Audio/AudioList/AudioItem/AudioItem";
+export { default as AudioList } from "./Admin/Audio/AudioList/AudioList";
+export { default as StatCard } from "./Admin/Overview/StatCard/StatCard";
+export { default as TemaModalAdmin } from "./Admin/Tema/TemaModalAdmin/TemaModalAdmin";
+export { default as AudioModalAdmin } from "./Admin/Audio/AudioModalAdmin/AudioModalAdmin";
+export { default as UserModalAdmin } from "./Admin/User/UserModalAdmin/UserModalAdmin";
+export { default as UndanganModalAdmin } from "./Admin/Undangan/UndanganModalAdmin/UndanganModalAdmin";
